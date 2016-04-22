@@ -10,6 +10,7 @@ URxvt.resize-font.bigger: C-Up
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 URxvt.geometry: 125x35
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 
 ! font
 URxvt*font: xft:Source\ Code\ Pro\ Medium:size=12:antialias=true:hinting=true
@@ -29,6 +30,8 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 Xft.dpi: 96
+
+
 
 ! clickable links, clipboard support, mouse wheel support, and on the fly font resizing
 ! you will need to install the relevent perl extensions for these to work
