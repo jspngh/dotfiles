@@ -93,14 +93,10 @@ set tags+=./.tags
 let g:ycm_enable_diagnostic_highlighting = 1
 " locate the rust source code
 let g:ycm_rust_src_path = '/usr/local/src/rust/src'
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" add some bindings
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Haskell autocompletion
 let g:haskellmode_completion_ghc = 0
@@ -428,4 +424,3 @@ nnoremap <leader>bc :call PipeToBc()<CR>
 
 " for some reason vim searches for something
 :noh
-
