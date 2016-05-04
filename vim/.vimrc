@@ -78,7 +78,7 @@ let g:airline_theme = 'powerlineish'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_cpp_check_header = 1
-let g:syntastic_java_javac_classpath = "./lib/*.jar\n./src/"
+let g:syntastic_error_symbol = "!"
 
 " Tagbar
 nnoremap <leader>l :TagbarToggle<CR>
@@ -88,9 +88,11 @@ nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 " Do not ask when starting vim
 let g:ycm_confirm_extra_conf = 0
 let g:syntastic_always_populate_loc_list = 1
-" let g:ycm_collect_identifiers_from_tags_files = 1
-" set tags+=./.tags
-
+let g:ycm_collect_identifiers_from_tags_files = 1
+set tags+=./.tags
+let g:ycm_enable_diagnostic_highlighting = 1
+" locate the rust source code
+let g:ycm_rust_src_path = '/usr/local/src/rust/src'
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -124,7 +126,6 @@ endif
 set splitright
 set splitbelow
 set autoread " auto reload file on change
-set foldmethod=syntax
 set mouse=a
 set scrolloff=8 "keep 8 lines below/above cursor
 " }}}
@@ -148,7 +149,10 @@ let base16colorspace=256
 
 set background=dark
 colorscheme desert
-syntax enable
+"syntax enable
+
+" Some extra highlighting
+:highlight Search ctermbg=None ctermfg=12
 " }}}
 " Wrapping {{{
 set nowrap
@@ -162,7 +166,7 @@ set listchars=tab:\ \ ,trail:·
 function! s:setupWrapping()
   setlocal wrap
   setlocal wrapmargin=2
-  setlocal textwidth=80
+  setlocal textwidth=160
   if v:version > 703
     setlocal colorcolumn=+1
   endif
@@ -249,23 +253,6 @@ set backupskip=/tmp/*,/private/tmp/*"
 nnoremap <Space> za
 vnoremap <Space> za
 
-function! MyFoldText() " {{{
-    let line = getline(v:foldstart)
-
-    let nucolwidth = &fdc + &number * &numberwidth
-    let windowwidth = winwidth(0) - nucolwidth - 3
-    let foldedlinecount = v:foldend - v:foldstart
-
-    " expand tabs into spaces
-    let onetab = strpart('          ', 0, &tabstop)
-    let line = substitute(line, '\t', onetab, 'g')
-
-    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
-    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
-    return line . ' ' . repeat(" ",fillcharcount) . ' ' . foldedlinecount . ' '
-endfunction " }}}
-set foldtext=MyFoldText()
-
 " }}}
 " I hate K {{{
 nnoremap K <nop>
@@ -317,15 +304,6 @@ augroup ft_javascript
   au BufNewFile,BufRead *.json set ft=javascript
 augroup END
 " }}}
-" Latex {{{
-augroup ft_latex
-  au!
-
-  au Filetype tex call s:setupWrapping()
-  au Filetype tex setlocal spell
-
-augroup END
-" }}}
 " Markdown {{{
 augroup ft_markdown
   au!
@@ -362,7 +340,7 @@ augroup ft_python
   au!
 
   au FileType python setlocal ts=4 sw=4 sts=4
-  au FileType python setlocal wrap wrapmargin=2 textwidth=120 colorcolumn=+1
+  au FileType python setlocal wrap wrapmargin=2 textwidth=160 colorcolumn=+1
 
 augroup END
 " }}}
