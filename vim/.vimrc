@@ -144,11 +144,12 @@ set t_Co=256
 let base16colorspace=256
 
 set background=dark
-colorscheme base16-default
+colorscheme base16-custom
 "syntax enable
 
 " Some extra highlighting
 :highlight Search ctermbg=None ctermfg=12
+:highlight LineNr ctermbg=black ctermfg=gray
 " }}}
 " Wrapping {{{
 set nowrap
