@@ -1,7 +1,7 @@
 {
   "manifest_version":2,
   "version":"1.0",
-  "name":"Greyscale",
+  "name":"Monokai",
   "theme":{
     "images":{
       "theme_frame":"images\/theme_frame.png",
@@ -12,23 +12,23 @@
       "toolbar": [255,0,0],
       "frame":[ 39,40,34 ],
       "toolbar":[ 39,40,34 ],
-      "tab_text":[ 102,217,239 ],
+      "tab_text":[ 253,151,31 ],
       "tab_background_text":[ 255, 255, 255 ],
       "bookmark_text":[ 255, 255, 255 ],
       "ntp_background":[ 39,40,34 ],
       "ntp_text":[ 0, 0, 0 ],
       "ntp_link":[ 0, 0, 120 ],
       "ntp_section":[ 39,40,34 ],
-      "ntp_section_text":[ 0, 0, 0 ], 
+      "ntp_section_text":[ 0, 0, 0 ],
       "ntp_section_link":[ 0, 0, 120 ],
-      "button_background":[102,217,239]
+      "button_background":[ 243,114,89 ]
     },
     "properties":{
       "ntp_background_alignment":"bottom",
       "ntp_background_repeat":"no-repeat"
     },
     "tints":{
-      "buttons":[ 0.18, 0.99, 0.60],
+      "buttons":[ 0.99, 0.99, 0.99],
       "frame_inactive": [-1,-1,-1]
     }
   }
