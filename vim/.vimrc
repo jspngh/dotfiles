@@ -37,6 +37,8 @@ Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 " Multiple cursor selection
 Plug 'terryma/vim-multiple-cursors'
+" Documentation
+Plug 'KabbAmine/zeavim.vim'
 " Language-specific {{{
 Plug 'octol/vim-cpp-enhanced-highlight',{'for': 'cpp'}
 Plug 'pangloss/vim-javascript'          " Javascript
