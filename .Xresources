@@ -53,7 +53,7 @@ URxvt*scrollTtyKeypress: true
 ! colors
 *.cursorColor:  #ebdbb2
 ! hard contrast: *background: #1d2021
-*.background: #282828
+*.background: #262626
 ! soft contrast: *background: #32302f
 *.foreground: #ebdbb2
 ! Black + DarkGrey

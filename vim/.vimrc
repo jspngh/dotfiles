@@ -74,7 +74,7 @@ nnoremap <leader>gP :Git push<CR>
 
 " Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'tomorrow'
 
 " Syntastic
 let g:syntastic_auto_loc_list=1
