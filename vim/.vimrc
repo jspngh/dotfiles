@@ -37,6 +37,8 @@ Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 " Multiple cursor selection
 Plug 'terryma/vim-multiple-cursors'
+" Smooth scrolling
+Plug 'terryma/vim-smooth-scroll'
 " Documentation
 Plug 'KabbAmine/zeavim.vim'
 " Language-specific {{{
@@ -125,6 +127,8 @@ set splitright
 set splitbelow
 set autoread " auto reload file on change
 set mouse=a
+noremap <silent> <ScrollWheelUp> :call smooth_scroll#up(&scroll/3, 0, 2)<CR>
+noremap <silent> <ScrollWheelDown> :call smooth_scroll#down(&scroll/3, 0, 2)<CR>
 set scrolloff=8 "keep 8 lines below/above cursor
 " }}}
 " UI options {{{
