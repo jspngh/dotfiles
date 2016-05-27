@@ -27,8 +27,10 @@
 (global-linum-mode t)
 
 ; window settings
+(setq inhibit-startup-message t)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
+(scroll-bar-mode -1)
 (when window-system (set-frame-size (selected-frame) 160 50))
 
 ; scrolling
