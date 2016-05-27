@@ -37,6 +37,8 @@ Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 " Multiple cursor selection
 Plug 'terryma/vim-multiple-cursors'
+" Documentation
+Plug 'KabbAmine/zeavim.vim'
 " Language-specific {{{
 Plug 'octol/vim-cpp-enhanced-highlight',{'for': 'cpp'}
 Plug 'pangloss/vim-javascript'          " Javascript
@@ -72,7 +74,7 @@ nnoremap <leader>gP :Git push<CR>
 
 " Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'tomorrow'
 
 " Syntastic
 let g:syntastic_auto_loc_list=1
@@ -144,11 +146,12 @@ set t_Co=256
 let base16colorspace=256
 
 set background=dark
-colorscheme base16-default
+colorscheme tomorrow-night
 "syntax enable
 
 " Some extra highlighting
 :highlight Search ctermbg=None ctermfg=12
+:highlight LineNr ctermbg=black ctermfg=gray
 " }}}
 " Wrapping {{{
 set nowrap

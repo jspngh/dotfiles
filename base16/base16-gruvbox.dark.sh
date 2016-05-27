@@ -7,11 +7,11 @@ if [ "${TERM%%-*}" = 'linux' ]; then
     return 2>/dev/null || exit 0
 fi
 
-color00="28/28/28" # Base 00 - Black
+color00="26/26/26" # Base 00 - Black
 color01="fb/49/34" # Base 08 - Red
 color02="98/97/1a" # Base 0B - Green
 color03="f4/bf/75" # Base 0A - Yellow
-color04="66/d9/ef" # Base 0D - Blue
+color04="45/85/88" # Base 0D - Blue
 color05="d3/86/9b" # Base 0E - Magenta
 color06="68/9d/6a" # Base 0C - Cyan
 color07="eb/db/b2" # Base 05 - White
@@ -30,7 +30,7 @@ color19="49/48/3e" # Base 02
 color20="a5/9f/85" # Base 04
 color21="f5/f4/f1" # Base 06
 color_foreground="eb/db/b2" # Base 05
-color_background="28/28/28" # Base 00
+color_background="26/26/26" # Base 00
 color_cursor="eb/db/b2" # Base 05
 
 if [ -n "$TMUX" ]; then
