@@ -155,7 +155,9 @@ colorscheme tomorrow-night
 
 " Some extra highlighting
 :highlight Search ctermbg=None ctermfg=12
-:highlight LineNr ctermbg=black ctermfg=gray
+
+:highlight LineNr ctermbg=black ctermfg=gray guifg=gray
+
 " }}}
 " Wrapping {{{
 set nowrap

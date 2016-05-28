@@ -6,8 +6,15 @@
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
-(require 'color-theme-sanityinc-tomorrow)
-(require 'rust-mode)
+
+;; Package helpers
+(defun ensure-and-require (package-name)
+  (unless (package-installed-p package-name)
+    (package-install package-name))
+  (require package-name))
+
+(ensure-and-require 'color-theme-sanityinc-tomorrow)
+(ensure-and-require 'rust-mode)
 
 ; theme settings
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
@@ -35,3 +42,19 @@
 
 ; scrolling
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+
+;; Rust settings
+(ensure-and-require 'rust-mode)
+(add-hook 'rust-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c <tab>") #'rust-format-buffer)))
+(ensure-and-require 'cargo)
+(add-hook 'rust-mode-hook 'cargo-minor-mode)
+(ensure-and-require 'racer)
+(ensure-and-require 'company)
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook #'company-mode)
+(ensure-and-require 'flycheck-rust)
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+(add-hook 'rust-mode-hook 'flycheck-mode)
