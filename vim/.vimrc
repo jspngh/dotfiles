@@ -133,7 +133,7 @@ set scrolloff=8 "keep 8 lines below/above cursor
 " }}}
 " UI options {{{
 if has('gui_running')
-  set guifont=Source\Code\Pro\ Regular\ 10
+  set guifont=Source\Code\Pro\ Regular\ 12
 
   " Remove scrollbars
   set guioptions-=L
