@@ -58,3 +58,11 @@
 (ensure-and-require 'flycheck-rust)
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 (add-hook 'rust-mode-hook 'flycheck-mode)
+
+(global-set-key (kbd "TAB") #'company-indent-or-complete-common) ;
+(setq company-tooltip-align-annotations t)
+(setq company-selection-wrap-around t)
+(eval-after-load 'company
+  '(progn
+     (define-key company-active-map (kbd "TAB") 'company-select-next)
+     (define-key company-active-map [tab] 'company-select-next)))
