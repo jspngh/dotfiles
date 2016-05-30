@@ -43,6 +43,10 @@
 ; scrolling
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 
+; evil mode
+(require 'evil)
+  (evil-mode 1)
+
 ;; Rust settings
 (ensure-and-require 'rust-mode)
 (add-hook 'rust-mode-hook
