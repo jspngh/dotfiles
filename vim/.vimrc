@@ -64,7 +64,7 @@ let maplocalleader="\<Space>"
 " Plugin settings {{{
 
 " NERDTree
-nnoremap <leader><leader> :NERDTreeToggle<esc>
+nnoremap <leader>, :NERDTreeToggle<esc>
 let NERDTreeIgnore = ['\.pyc$', '\.hi', '\.o']
 
 " Git
@@ -143,7 +143,7 @@ if has('gui_running')
   " Remove toolbar
   set guioptions=-t
   " Default size
-  set lines=55 columns=160
+  set lines=55 columns=230
 else
   noremap <silent> <ScrollWheelUp> :call smooth_scroll#up(&scroll/3, 0, 2)<CR>
   noremap <silent> <ScrollWheelDown> :call smooth_scroll#down(&scroll/3, 0, 2)<CR>
