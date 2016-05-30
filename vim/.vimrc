@@ -89,6 +89,7 @@ nnoremap <leader>l :TagbarToggle<CR>
 
 " YouCompleteMe
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+nnoremap <M-.> :YcmCompleter GoTo<CR>
 " Do not ask when starting vim
 let g:ycm_confirm_extra_conf = 0
 let g:syntastic_always_populate_loc_list = 1
@@ -141,6 +142,8 @@ if has('gui_running')
 
   " Remove toolbar
   set guioptions=-t
+  " Default size
+  set lines=55 columns=160
 else
   noremap <silent> <ScrollWheelUp> :call smooth_scroll#up(&scroll/3, 0, 2)<CR>
   noremap <silent> <ScrollWheelDown> :call smooth_scroll#down(&scroll/3, 0, 2)<CR>
