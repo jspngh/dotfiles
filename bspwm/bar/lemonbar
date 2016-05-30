@@ -31,9 +31,9 @@ groups() {
     cur=`xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}'`
     tot=`xprop -root _NET_NUMBER_OF_DESKTOPS | awk '{print $3}'`
 
-    for w in `seq 0 $((cur - 1))`; do line="${line}="; done
-    line="${line}|"
-    for w in `seq $((cur + 2)) $tot`; do line="${line}="; done
+    for w in `seq 0 $((cur - 1))`; do line="${line}*"; done
+    line="${line}%{F#7FDD6E}*%{F-}"
+    for w in `seq $((cur + 2)) $tot`; do line="${line}*"; done
     echo $line
 }
 
@@ -67,7 +67,7 @@ Battery() {
 # print workspace info
 while true; do
   echo "g$(groups)"
-  sleep 1;
+  sleep 0.5;
   done > "$PANEL_FIFO" &
 
 # print volume info
@@ -96,9 +96,8 @@ while true; do
 
 while true; do
   interface=$WIFI_DEV
-  BitRate=`iwconfig $interface | grep 'Bit Rate=' | awk '{gsub(/[=/]/," "); print $3}'`
   ESSID=`iwconfig $interface | grep "ESSID:" | awk '{gsub(/[:"]/," "); print $5}'`
-  echo "w$ESSID - $BitRate Mb/s"
+  echo "w$ESSID"
   sleep 300
   done > "$PANEL_FIFO" &
 
