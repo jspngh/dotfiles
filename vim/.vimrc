@@ -127,8 +127,6 @@ set splitright
 set splitbelow
 set autoread " auto reload file on change
 set mouse=a
-noremap <silent> <ScrollWheelUp> :call smooth_scroll#up(&scroll/3, 0, 2)<CR>
-noremap <silent> <ScrollWheelDown> :call smooth_scroll#down(&scroll/3, 0, 2)<CR>
 set scrolloff=8 "keep 8 lines below/above cursor
 " }}}
 " UI options {{{
@@ -143,6 +141,9 @@ if has('gui_running')
 
   " Remove toolbar
   set guioptions=-t
+else
+  noremap <silent> <ScrollWheelUp> :call smooth_scroll#up(&scroll/3, 0, 2)<CR>
+  noremap <silent> <ScrollWheelDown> :call smooth_scroll#down(&scroll/3, 0, 2)<CR>
 endif
 " }}}
 " Colorscheme {{{
