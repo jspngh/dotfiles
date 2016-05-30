@@ -57,8 +57,8 @@ call plug#end()
 " }}}
 " Leader {{{
 
-let mapleader=','
-let maplocalleader=','
+let mapleader="\<Space>"
+let maplocalleader="\<Space>"
 
 " }}}
 " Plugin settings {{{
@@ -246,35 +246,23 @@ nnoremap <silent> <A-Up> :<C-u>call MoveLineUp()<CR>
 nnoremap <silent> <A-Down> :<C-u>call MoveLineDown()<CR>
 inoremap <silent> <A-Up> <C-o>:call MoveLineUp()<CR>
 inoremap <silent> <A-Down> <C-o>:call MoveLineDown()<CR>
-"vnoremap <silent> <A-Up> :<C-u>call MoveVisualUp()<CR>
-""vnoremap <silent> <A-Down> :<C-u>call MoveVisualDown()<CR>
+vnoremap <silent> <A-Up> :<C-u>call MoveVisualUp()<CR>
+vnoremap <silent> <A-Down> :<C-u>call MoveVisualDown()<CR>
 xnoremap <silent> <A-Up> :<C-u>call MoveVisualUp()<CR>
 xnoremap <silent> <A-Down> :<C-u>call MoveVisualDown()<CR>
 " }}}
+" provide hjkl movements in Insert mode via the <Alt> modifier key
+inoremap <A-h> <C-o>h
+inoremap <A-j> <C-o>j
+inoremap <A-k> <C-o>k
+inoremap <A-l> <C-o>l
 " Backups and undo {{{
 set backupdir=~/.vim/tmp/backup/ " backups
 set directory=~/.vim/tmp/swap/   " swap files
 set backup                       " enable backups
 set backupskip=/tmp/*,/private/tmp/*"
 " }}}
-" Folding {{{
-" Space to toggle folds.
-nnoremap <Space> za
-vnoremap <Space> za
-
-" }}}
-" I hate K {{{
-nnoremap K <nop>
-" }}}
 " Filetype specific {{{
-" Config files {{{
-augroup config_files
-  au!
-  au BufRead {init.vim,.vimrc,vimrc} set foldmethod=marker
-  au BufRead .zshrc set foldmethod=marker
-  au BufRead .tmux.conf set foldmethod=marker
-augroup END
-" }}}
 " C# {{{
 augroup c_sharp
   au!
@@ -384,7 +372,7 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap _md :set ft=markdown<CR>
 
 " open shell
-nnoremap <leader>sh :VimShellPop<CR>
+"nnoremap <leader>sh :VimShellPop<CR>
 
 " Allow copy-pasting to X11 in visual mode
 vnoremap <C-c> "+y
