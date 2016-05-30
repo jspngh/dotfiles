@@ -47,6 +47,9 @@
 (require 'evil)
   (evil-mode 1)
 
+; magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
 ;; Rust settings
 (ensure-and-require 'rust-mode)
 (add-hook 'rust-mode-hook

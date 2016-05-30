@@ -89,6 +89,7 @@ nnoremap <leader>l :TagbarToggle<CR>
 
 " YouCompleteMe
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+nnoremap <M-.> :YcmCompleter GoTo<CR>
 " Do not ask when starting vim
 let g:ycm_confirm_extra_conf = 0
 let g:syntastic_always_populate_loc_list = 1
@@ -143,6 +144,8 @@ if has('gui_running')
 
   " Remove toolbar
   set guioptions=-t
+
+  set lines=55 columns=160
 endif
 " }}}
 " Colorscheme {{{
