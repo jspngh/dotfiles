@@ -297,6 +297,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 	" C Highlighting
 	call <SID>X("cType", s:yellow, "", "")
+	call <SID>X("cOperator", s:aqua, "", "")
+	call <SID>X("cStatement", s:keyword, "", "")
+	call <SID>X("cString", s:red, "", "")
+	call <SID>X("cStructure", s:red, "", "")
 	call <SID>X("cStorageClass", s:purple, "", "")
 	call <SID>X("cConditional", s:purple, "", "")
 	call <SID>X("cRepeat", s:purple, "", "")
