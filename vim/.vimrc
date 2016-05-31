@@ -28,6 +28,8 @@ Plug 'Shougo/vimshell'
 Plug 'tpope/vim-commentary'
 " Color schemes
 Plug 'chriskempson/base16-vim'
+" Tag highlighting
+Plug 'vim-scripts/TagHighlight'
 " Autocompletion
 Plug 'Valloric/YouCompleteMe'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
