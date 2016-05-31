@@ -63,6 +63,27 @@ let mapleader="\<Space>"
 let maplocalleader="\<Space>"
 
 " }}}
+
+" UI options {{{
+if has('gui_running')
+  set guifont=Source\Code\Pro\ Regular\ 12
+
+  " Remove scrollbars
+  set guioptions-=L
+  set guioptions-=R
+  set guioptions-=T
+  set guioptions-=B
+
+  " Remove toolbar
+  set guioptions=-t
+  " Default size
+  set lines=55 columns=230
+else
+  noremap <silent> <ScrollWheelUp> :call smooth_scroll#up(&scroll/3, 0, 2)<CR>
+  noremap <silent> <ScrollWheelDown> :call smooth_scroll#down(&scroll/3, 0, 2)<CR>
+endif
+" }}}
+
 " Plugin settings {{{
 
 " NERDTree
@@ -91,7 +112,7 @@ nnoremap <leader>l :TagbarToggle<CR>
 
 " YouCompleteMe
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-nnoremap <M-.> :YcmCompleter GoTo<CR>
+nnoremap <A-.> :YcmCompleter GoTo<CR>
 " Do not ask when starting vim
 let g:ycm_confirm_extra_conf = 0
 let g:syntastic_always_populate_loc_list = 1
@@ -132,31 +153,12 @@ set autoread " auto reload file on change
 set mouse=a
 set scrolloff=8 "keep 8 lines below/above cursor
 " }}}
-" UI options {{{
-if has('gui_running')
-  set guifont=Source\Code\Pro\ Regular\ 12
-
-  " Remove scrollbars
-  set guioptions-=L
-  set guioptions-=R
-  set guioptions-=T
-  set guioptions-=B
-
-  " Remove toolbar
-  set guioptions=-t
-  " Default size
-  set lines=55 columns=230
-else
-  noremap <silent> <ScrollWheelUp> :call smooth_scroll#up(&scroll/3, 0, 2)<CR>
-  noremap <silent> <ScrollWheelDown> :call smooth_scroll#down(&scroll/3, 0, 2)<CR>
-endif
-" }}}
 " Colorscheme {{{
 set t_Co=256
 let base16colorspace=256
 
 set background=dark
-colorscheme tomorrow-night
+colorscheme niflheim
 "syntax enable
 
 " Some extra highlighting
