@@ -45,7 +45,7 @@
 
 ; evil mode
 (require 'evil)
-  (evil-mode 1)
+  (evil-mode 0)
 
 ; magit
 (global-set-key (kbd "C-x g") 'magit-status)
