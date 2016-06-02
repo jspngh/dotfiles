@@ -58,10 +58,11 @@ memused() {
 }
 
 # get battery info
-Battery() {
+battery() {
+    BATNMR=$(acpi --battery | cut -d, -f2 | cut -d% -f1)
     BATPERC=$(acpi --battery | cut -d, -f2)
     CHARGSTAT=$(acpi --battery | cut -d\  -f3 | awk '{ if($1 == "Discharging,") print "-"; else print "+";}')
-    echo "$BATPERC $CHARGSTAT"
+    echo "$BATPERC% $CHARGSTAT"
 }
 
 # print workspace info
@@ -90,7 +91,7 @@ while true; do
 
 # print battery info
 while true; do
-  echo "b$(Battery)"
+  echo "b$(battery)"
   sleep 1;
   done > "$PANEL_FIFO" &
 

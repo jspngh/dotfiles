@@ -1,0 +1,9 @@
+FriendlyName:rust
+CTagsName:rust
+PythonExtensionMatcher:rs
+VimExtensionMatcher:rs
+Suffix:rust
+VimSyntaxes:rust
+VimFileTypes:rust
+
+# vim: ff=unix:noet

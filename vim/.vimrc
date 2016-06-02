@@ -110,6 +110,13 @@ let g:syntastic_error_symbol = "!"
 " Tagbar
 nnoremap <leader>l :TagbarToggle<CR>
 
+" TagHighlighting
+" if ! exists('g:TagHighlightSettings')
+"   let g:TagHighlightSettings = {}
+"   endif
+"   let g:TagHighlightSettings['TagFileName'] = 'rusty-tags.vi'
+"   let g:TagHighlightSettings['CtagsExecutable'] = 'rusty-tags'
+
 " YouCompleteMe
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 nnoremap <A-.> :YcmCompleter GoTo<CR>
@@ -117,7 +124,7 @@ nnoremap <A-.> :YcmCompleter GoTo<CR>
 let g:ycm_confirm_extra_conf = 0
 let g:syntastic_always_populate_loc_list = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
-set tags+=./.tags
+set tags+=./.tags,/usr/local/src/rust/TAGS.vi;
 let g:ycm_enable_diagnostic_highlighting = 1
 " locate the rust source code
 let g:ycm_rust_src_path = '/usr/local/src/rust/src'
