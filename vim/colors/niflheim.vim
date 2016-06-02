@@ -3,7 +3,7 @@
 "
 " Hex colour conversion functions borrowed from the theme "Desert256""
 
-" Default GUI Colours
+" Default GUI colours
 let s:foreground = "c5c8c6"
 let s:unfocused = "767876"
 let s:background = "1d1f21"
@@ -20,7 +20,14 @@ let s:blue = "81a2be"
 let s:purple = "b294bb"
 let s:window = "4d5057"
 
-" Console 256 Colours
+" Rust specific colours
+let s:rusttype = s:blue
+let s:rustmodule = s:rusttype
+let s:rustmodpath = s:blue
+let s:rusttrait = s:blue
+let s:rustkeyword = s:purple
+
+" Console 256 colours
 if !has("gui_running")
 	let s:background = "303030"
 	let s:window = "5e5e5e"
@@ -312,14 +319,26 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("CTagsMember", s:green, "", "")
   call <SID>X("CTagsEnumeration", s:yellow, "", "")
   call <SID>X("CTagsEnumerationValue", s:yellow, "", "")
-  call <SID>X("CTagsStructure", s:purple, "", "")
+  call <SID>X("CTagsEnumerationName", s:purple, "", "")
+  call <SID>X("CTagsStructure", s:blue, "", "")
+  call <SID>X("CTagsType", s:red, "", "")
+  call <SID>X("CTagsModule", s:rustmodule, "", "")
+  call <SID>X("CTagsTrait", s:rusttrait, "", "")
+  call <SID>X("CTagsTraitImplementation", s:rusttrait, "", "")
+  call <SID>X("CTagsConstant", s:purple, "", "")
+  call <SID>X("CTagsMacro", s:purple, "", "")
 
-	" Rust Highlighting
+  " Rust Highlighting
+	call <SID>X("rustFuncName", s:orange, "", "")
+	call <SID>X("rustOperator", s:orange, "", "")
 	call <SID>X("rustConditional", s:purple, "", "")
-	call <SID>X("rustStructure", s:yellow, "", "")
-	call <SID>X("rustType", s:blue, "", "")
+	call <SID>X("rustStructure", s:green, "", "")
+	call <SID>X("rustType", s:rusttype, "", "")
 	call <SID>X("rustEnum", s:purple, "", "")
-	call <SID>X("rustKeyword", s:keyword, "", "")
+	call <SID>X("rustSelf", s:yellow, "", "")
+	call <SID>X("rustModPath", s:rustmodpath, "", "")
+	call <SID>X("rustModPathSep", s:unfocused, "", "")
+	call <SID>X("rustKeyword", s:rustkeyword, "", "")
 
   " PHP Highlighting
 	call <SID>X("phpVarSelector", s:red, "", "")
