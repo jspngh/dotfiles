@@ -165,8 +165,8 @@ rust:
 	s:CTagsStructure
 	m:CTagsModule
 	c:CTagsConstant
-	t:CTagsDefinedName
-	i:CTagsDefinedName
+	t:CTagsTrait
+	i:CTagsTraitImplementation
 	d:CTagsMacro
 scheme:
 	f:CTagsFunction

@@ -20,7 +20,12 @@ let s:blue = "81a2be"
 let s:purple = "b294bb"
 let s:window = "4d5057"
 
+" CTags specific colours
+let s:ctagsfunction = s:orange
+
 " Rust specific colours
+let s:rustfunction = s:aqua
+let s:rustoperator = s:orange
 let s:rusttype = s:blue
 let s:rustmodule = s:rusttype
 let s:rustmodpath = s:blue
@@ -269,6 +274,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("MatchParen", "", s:selection, "")
 	call <SID>X("Folded", s:comment, s:background, "")
 	call <SID>X("FoldColumn", "", s:background, "")
+	call <SID>X("vimCommand", s:red, "", "none")
 	if version >= 700
     call <SID>X("CursorLine", "", s:line, "none")
 		call <SID>X("CursorColumn", "", s:line, "none")
@@ -285,13 +291,13 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Comment", s:comment, "", "")
 	call <SID>X("Todo", s:comment, s:background, "")
 	call <SID>X("Title", s:comment, "", "")
-	call <SID>X("Identifier", s:red, "", "none")
+	call <SID>X("Identifier", s:yellow, "", "none")
 	call <SID>X("Statement", s:foreground, "", "")
 	call <SID>X("Conditional", s:foreground, "", "")
 	call <SID>X("Repeat", s:foreground, "", "")
 	call <SID>X("Structure", s:purple, "", "")
 	call <SID>X("Function", s:blue, "", "")
-	call <SID>X("Constant", s:orange, "", "")
+	call <SID>X("Constant", s:aqua, "", "")
 	call <SID>X("String", s:green, "", "")
 	call <SID>X("Special", s:foreground, "", "")
 	call <SID>X("PreProc", s:purple, "", "")
@@ -301,10 +307,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Include", s:blue, "", "")
 	"call <SID>X("Ignore", "666666", "", "")
 
-	" Vim Highlighting
-	call <SID>X("vimCommand", s:red, "", "none")
-
-	" C Highlighting
+  " C Highlighting
 	call <SID>X("cType", s:yellow, "", "")
 	call <SID>X("cOperator", s:aqua, "", "")
 	call <SID>X("cStatement", s:keyword, "", "")
@@ -315,7 +318,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("cRepeat", s:purple, "", "")
 
   " CTags Highlighting
-  call <SID>X("CTagsFunction", s:aqua, "", "")
+  call <SID>X("CTagsFunction", s:ctagsfunction, "", "")
   call <SID>X("CTagsMember", s:green, "", "")
   call <SID>X("CTagsEnumeration", s:yellow, "", "")
   call <SID>X("CTagsEnumerationValue", s:yellow, "", "")
@@ -329,13 +332,13 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("CTagsMacro", s:purple, "", "")
 
   " Rust Highlighting
-	call <SID>X("rustFuncName", s:orange, "", "")
-	call <SID>X("rustOperator", s:orange, "", "")
+	call <SID>X("rustFuncName", s:rustfunction, "", "")
+	call <SID>X("rustOperator", s:rustoperator, "", "")
 	call <SID>X("rustConditional", s:purple, "", "")
-	call <SID>X("rustStructure", s:green, "", "")
+	call <SID>X("rustStructure", s:orange, "", "")
 	call <SID>X("rustType", s:rusttype, "", "")
 	call <SID>X("rustEnum", s:purple, "", "")
-	call <SID>X("rustSelf", s:yellow, "", "")
+	call <SID>X("rustSelf", s:red, "", "")
 	call <SID>X("rustModPath", s:rustmodpath, "", "")
 	call <SID>X("rustModPathSep", s:unfocused, "", "")
 	call <SID>X("rustKeyword", s:rustkeyword, "", "")
