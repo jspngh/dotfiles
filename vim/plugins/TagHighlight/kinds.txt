@@ -159,15 +159,15 @@ python:
 rexx:
   s:CTagsFunction
 rust:
-	f:CTagsFunction
-	T:CTagsType
-	g:CTagsEnumeratorName
-	s:CTagsStructure
-	m:CTagsModule
-	c:CTagsConstant
-	t:CTagsTrait
-	i:CTagsTraitImplementation
-	d:CTagsMacro
+	f:CTagsRustFunction
+	T:CTagsRustType
+	g:CTagsRustEnumerationName
+	s:CTagsRustStructure
+	m:CTagsRustModule
+	c:CTagsRustConstant
+	t:CTagsRustTrait
+	i:CTagsRustTraitImplementation
+	d:CTagsRustMacro
 scheme:
 	f:CTagsFunction
 	s:CTagsSet

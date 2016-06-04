@@ -62,7 +62,7 @@ battery() {
     BATNMR=$(acpi --battery | cut -d, -f2 | cut -d% -f1)
     BATPERC=$(acpi --battery | cut -d, -f2)
     CHARGSTAT=$(acpi --battery | cut -d\  -f3 | awk '{ if($1 == "Discharging,") print "-"; else print "+";}')
-    echo "$BATPERC% $CHARGSTAT"
+    echo "$BATPERC $CHARGSTAT"
 }
 
 # print workspace info
@@ -102,6 +102,6 @@ while true; do
   sleep 300
   done > "$PANEL_FIFO" &
 
-cat "$PANEL_FIFO" | ~/.config/bspwm/bar/panel_bar | lemonbar -g ${BARWIDTH}x${BARHEIGHT}+${EDGEWIDTH} -f "$PANEL_FONT_FAMILY" -F "$FOREGROUND" -B "$BACKGROUND" -u "$UNDERLINE_WIDTH" | while read line; do eval "$line"; done &
+  cat "$PANEL_FIFO" | ~/.config/bspwm/bar/panel_bar | lemonbar -g ${BARWIDTH}x${BARHEIGHT}+${EDGEWIDTH} -f "$PANEL_FONT_FAMILY" -F "$FOREGROUND" -B "$BACKGROUND" -u "$UNDERLINE_WIDTH" -U "#FF00FF" | while read line; do eval "$line"; done &
 
 wait

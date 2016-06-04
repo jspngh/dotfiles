@@ -76,6 +76,7 @@ if has('gui_running')
 
   " Remove toolbar
   set guioptions=-t
+
   " Default size
   set lines=55 columns=230
 else
@@ -99,7 +100,7 @@ nnoremap <leader>gP :Git push<CR>
 
 " Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'tomorrow'
+let g:airline_theme = 'lucius'
 
 " Syntastic
 let g:syntastic_auto_loc_list=1
@@ -108,18 +109,11 @@ let g:syntastic_cpp_check_header = 1
 let g:syntastic_error_symbol = "!"
 
 " Tagbar
-nnoremap <leader>l :TagbarToggle<CR>
-
-" TagHighlighting
-" if ! exists('g:TagHighlightSettings')
-"   let g:TagHighlightSettings = {}
-"   endif
-"   let g:TagHighlightSettings['TagFileName'] = 'rusty-tags.vi'
-"   let g:TagHighlightSettings['CtagsExecutable'] = 'rusty-tags'
+nnoremap <silent> <leader>l :TagbarToggle<CR>
 
 " YouCompleteMe
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-nnoremap <A-.> :YcmCompleter GoTo<CR>
+nnoremap <silent> <A-.> :YcmCompleter GoTo<CR>
 " Do not ask when starting vim
 let g:ycm_confirm_extra_conf = 0
 let g:syntastic_always_populate_loc_list = 1
@@ -131,7 +125,6 @@ let g:ycm_rust_src_path = '/usr/local/src/rust/src'
 " add some bindings
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
-
 
 " Haskell autocompletion
 let g:haskellmode_completion_ghc = 0

@@ -332,7 +332,17 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("CTagsMacro", s:purple, "", "")
 
   " Rust Highlighting
-	call <SID>X("rustFuncName", s:rustfunction, "", "")
+  call <SID>X("CTagsRustFunction", s:ctagsfunction, "", "")
+  call <SID>X("CTagsRustType", s:red, "", "")
+  call <SID>X("CTagsRustEnumerationName", s:purple, "", "")
+  call <SID>X("CTagsRustStructure", s:blue, "", "")
+  call <SID>X("CTagsRustModule", s:rustmodule, "", "")
+  call <SID>X("CTagsRustConstant", s:purple, "", "")
+  call <SID>X("CTagsRustTrait", s:rusttrait, "", "")
+  call <SID>X("CTagsRustTraitImplementation", s:rusttrait, "", "")
+  call <SID>X("CTagsRustMacro", s:purple, "", "")
+
+  call <SID>X("rustFuncName", s:rustfunction, "", "")
 	call <SID>X("rustOperator", s:rustoperator, "", "")
 	call <SID>X("rustConditional", s:purple, "", "")
 	call <SID>X("rustStructure", s:orange, "", "")
