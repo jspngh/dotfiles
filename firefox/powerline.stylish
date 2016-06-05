@@ -1,40 +1,41 @@
 @namespace html url(http://www.w3.org/1999/xhtml);
-
 @namespace xul url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 
 /*
-
     Author: Twily
-
     Description: Minimal flat styled tabs for Australis
-
     Compatibility: -- Firefox 43.0.4 --
-
     Website: http://twily.info/
-    Useful search tags within this css:
 
+    Useful search tags within this css:
     "url-bar visible", "bottom margin", "attach url-bar", "newtab button", "back/forward", "enable scrollbar"
     To enable bitmap fonts in Firefox 44+; open "about:config" and set the following preference to "false":
-
     "gfx.font_rendering.fontconfig.fontlist.enabled"
-
 */
+
 :root {
+
     /* TAB VARIABLES */
+    /* Original values
     --bg-light: #524C59; --bg-dark: #282333;
     --fg-light: #D6CCDC; --fg-dark: #AAA5AD;
+    */
+    --bg-light: #384450; --bg-dark: #282828;
+    --fg-light: #e0e0e0; --fg-dark: #e5d09a;
     --tab-triangle-correction: -1px;
-    --tab-height: 18px; --tab-icon-size: 12px; --tab-strip-margin: -12px; --tab-overlap: -5px;
-    --tab-fonts: "Lemon",monospace,"Dejavu Sans"; --tab-font-size: 7pt;
+    --tab-height: 22px; --tab-icon-size: 16px; --tab-strip-margin: -16px; --tab-overlap: -5px;
+    --tab-fonts: "Anonymous Pro",monospace,"Dejavu Sans"; --tab-font-size: 8pt;
     --tab-text-align: center; /* left | center | right */
     --tab-triangle: block;  /* block | none */
+
     /* URL VARIABLES */
-    --url-background: var(--bg-light); --url-color: var(--fg-dark);
-    --url-height: 18px; --url-right-margin: 6px;
-    --url-fonts: "Lemon",monospace,"Dejavu Sans"; --url-font-size: 7pt;
+    --url-background: var(--bg-dark); --url-color: var(--fg-dark);
+    --url-height: 22px; --url-right-margin: 6px;
+    --url-fonts: "Source Code Pro",monospace,"Dejavu Sans"; --url-font-size: 8pt;
     --url-text-align: center; /* left | center | right */
     --url-position: absolute; /* absolute == top (under tabs) || fixed == bottom of browser */
 }
+
 @-moz-document url(chrome://browser/content/browser.xul) {
     /* URL-BAR */
     #back-button, #forward-button, #back-button *, #forward-button *, #identity-box, #urlbar-reload-button, #urlbar-stop-button, #urlbar-go-button,
@@ -86,13 +87,12 @@
     }
 
     #urlbar * { -moz-appearance: none !important; }
-
     .urlbar-textbox-container .urlbar-input-box .textbox-input {
         height: var(--url-height) !important;
     }
 
     /* --- Uncomment the section below to enable the back/forward buttons [EXPERIMENTAL] (Requires url-bar) --- */
-
+    /*
     #back-button, #forward-button { display: block !important; }
 
     #back-button::before, #forward-button::before {
