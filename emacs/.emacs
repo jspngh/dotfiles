@@ -45,7 +45,9 @@
 
 ; evil mode
 (require 'evil)
-  (evil-mode 0)
+  (evil-mode 1)
+(define-key evil-normal-state-map (kbd "M-.") #'racer-find-definition)
+(define-key evil-normal-state-map (kbd "M-,") #'pop-tag-mark)
 
 ; magit
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -66,10 +68,15 @@
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 (add-hook 'rust-mode-hook 'flycheck-mode)
 
-(global-set-key (kbd "TAB") #'company-indent-or-complete-common) ;
+(global-set-key (kbd "TAB") #'company-indent-or-complete-common)
 (setq company-tooltip-align-annotations t)
 (setq company-selection-wrap-around t)
 (eval-after-load 'company
   '(progn
      (define-key company-active-map (kbd "TAB") 'company-select-next)
      (define-key company-active-map [tab] 'company-select-next)))
+
+; elm
+(ensure-and-require 'elm-mode)
+(add-hook 'elm-mode-hook #'elm-oracle-setup-completion)
+(add-to-list 'company-backends 'company-elm)
