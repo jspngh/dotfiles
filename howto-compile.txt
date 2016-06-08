@@ -1,0 +1,9 @@
+ABSROOT=. abs core/linux
+cd core/linux
+# Edit config.x86_64 to add CONFIG_ACPI_REV_OVERRIDE_POSSIBLE=y
+# Edit PKGBUILD change pkgbase to linux-xps13
+# Edit (optional): Add MAKEFLAGS="-j$(nproc)" in build function in PKGBUILD to speed up next makepkg
+makepkg -s --skipchecksums (takes about 42 mins plus kernel source download time)
+sudo pacman -U kernel-headers_package.tar.xz
+sudo pacman -U kernel_package.tar.xz
+# Then sudo edit your bootloader config to add boot entries for this kernel. e.g. in /boot/loader/ for systemd-boot.
