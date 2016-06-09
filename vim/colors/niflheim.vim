@@ -27,6 +27,7 @@ let s:ctagsfunction = s:orange
 let s:rustfunction = s:aqua
 let s:rustoperator = s:orange
 let s:rusttype = s:blue
+let s:rustmacro = s:blue
 let s:rustmodule = s:rusttype
 let s:rustmodpath = s:blue
 let s:rusttrait = s:blue
@@ -348,6 +349,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("rustStructure", s:orange, "", "")
 	call <SID>X("rustType", s:rusttype, "", "")
 	call <SID>X("rustEnum", s:purple, "", "")
+	call <SID>X("rustMacro", s:rustmacro, "", "")
 	call <SID>X("rustSelf", s:red, "", "")
 	call <SID>X("rustModPath", s:rustmodpath, "", "")
 	call <SID>X("rustModPathSep", s:unfocused, "", "")
