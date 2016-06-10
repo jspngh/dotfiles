@@ -206,6 +206,11 @@ noremap H ^
 noremap L lg_
 " }}}
 
+" Shift+Enter for newline {{{
+noremap <S-Enter> o<Esc>
+" }}}
+
+
 " Easy line moving {{{
 function! MoveLineUp()
   call MoveLineOrVisualUp(".", "")

@@ -76,6 +76,14 @@
      (define-key company-active-map (kbd "TAB") 'company-select-next)
      (define-key company-active-map [tab] 'company-select-next)))
 
+; haskell
+(ensure-and-require 'haskell-mode)
+(add-hook 'haskell-mode-hook
+          (lambda ()
+            (set (make-local-variable 'company-backends)
+                 (append '((company-capf company-dabbrev-code))
+                         company-backends))))
+
 ; elm
 (ensure-and-require 'elm-mode)
 (add-hook 'elm-mode-hook #'elm-oracle-setup-completion)
