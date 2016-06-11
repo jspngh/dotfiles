@@ -1,0 +1,199 @@
+#!/bin/zsh
+
+source ~/.config/bspwm/bar/panel_colors
+source ~/.config/bspwm/bar/panel_config
+# . mpv_functions
+
+# check if panel is already running
+if [[ $(pgrep -cx panel) -gt 1 ]]; then
+	printf "%s\n" "The panel is already running." >&2
+	exit 1
+fi
+
+# exit gracefully if terminated
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+# remove old panel fifo, creat new one
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+
+# set up bspwm to not overlap the panel
+# bspc config top_padding "$PANEL_HEIGHT"
+
+# get bspwms status feed
+bspc subscribe > "$PANEL_FIFO" &
+
+# window title
+# xtitle -sf 'TITLE%s' > "$PANEL_FIFO" &
+
+# clock
+while true; do
+	echo -e "TIME$ICON_CLOCK$(date +"%_H:%M")"
+    sleep $REFRESH_CLOCK
+done > "$PANEL_FIFO" &
+
+# date
+while true; do
+	echo -e "DAY$ICON_DATE$(date +'%a, %b %_d')"
+    sleep $REFRESH_DATE
+done > "$PANEL_FIFO" &
+
+# battery
+while true; do
+    BATT_LEVEL=$(acpi -b | grep -o '[[:digit:]]\+%' | sed 's/%//')
+    if [[ $(cat "$BATTERY/status") != "Charging" ]]; then
+        if [[ $BATT_LEVEL -ge 80 ]]; then
+	    	BATT_ICON=$ICON_BATTERY_FULL
+    	elif [[ $BATT_LEVEL -ge 60 && $BATT_LEVEL -lt 80 ]]; then
+	    	BATT_ICON=$ICON_BATTERY_THREEQUARTERS
+    	elif [[ $BATT_LEVEL -ge 40 && $BATT_LEVEL -lt 60 ]]; then
+	    	BATT_ICON=$ICON_BATTERY_HALF
+    	elif [[ $BATT_LEVEL -ge 20 && $BATT_LEVEL -lt 40 ]]; then
+	    	BATT_ICON=$ICON_BATTERY_QUARTER
+    	elif [[ $BATT_LEVEL -lt 20 ]]; then
+	    	BATT_ICON=$ICON_BATTERY_EMPTY
+    	fi
+    else
+        BATT_ICON=$ICON_BATTERY_CHARGING
+    fi
+	#uncomment next and delete the line after that to see percentage
+	#echo -e $BATT_ICON %{F$COLOR_TEXT_FG} $BATT_LEVEL%%{F-}
+	echo -e BAT$BATT_ICON
+	sleep $REFRESH_BATTERY
+done > "$PANEL_FIFO" &
+
+# alsa volume
+while true; do
+    ALSA_VOLUME=$(amixer get Master | grep 'Front Left: Playback' | grep -o '...%' | sed 's/\[//' | sed 's/%//' | sed 's/ //')
+    ALSA_STATE=$(amixer get Master | grep 'Front Left: Playback' | grep -o '\[on]')
+    if [[ $ALSA_STATE ]]; then
+    	if [[ $ALSA_VOLUME -ge 70 ]]; then
+    		VOLUME_ICON=$ICON_VOLUME_HIGH
+    	elif [[ $ALSA_VOLUME -gt 0 && $ALSA_VOLUME -lt 70 ]]; then
+    		VOLUME_ICON=$ICON_VOLUME_LOW
+    	else
+	    	VOLUME_ICON=$ICON_VOLUME_MUTE
+    	fi
+    else
+        VOLUME_ICON=$ICON_VOLUME_MUTE
+    fi
+    echo -e "VOL%{A:urxvtc -e "alsamixer":}$VOLUME_ICON%{A}"
+    if [[ $(cat "$BATTERY/status") = "Charging" ]]; then
+        sleep $REFRESH_VOLUME_FAST
+    else
+        sleep $REFRESH_VOLUME_SLOW
+    fi
+done > "$PANEL_FIFO" &
+
+# # weechat (use hl2file weechat script)
+# while true; do
+#     UNREADMESSAGES=$(wc -l < "$MSGFILE")
+#     if [[ -z $UNREADMESSAGES || $UNREADMESSAGES = 0 ]]; then
+#         WEECHAT_ICON="$ICON_CHAT_NONE "
+#     else
+#         WEECHAT_ICON="$ICON_CHAT_NEW %{F$COLOR_TEXT_FG} $UNREADMESSAGES%{F-}"
+#     fi
+#     echo -e "MESSAGE$WEECHAT_ICON"
+#     sleep $REFRESH_CHAT
+# done > "$PANEL_FIFO" &
+
+# email
+# while true; do
+#     NEWEMAILS=$(ls $NEWMAILDIR | wc -l)
+#     if [[ -z $NEWEMAILS || $NEWEMAILS = 0 ]]; then
+# 	    EMAIL_ICON="$ICON_EMAIL_NONE"
+#     else
+#         EMAIL_ICON="$ICON_EMAIL_NEW %{F$COLOR_TEXT_FG} $NEWEMAILS%{F-}"
+#     fi
+#     echo -e "EMAIL%{A:urxvtc -e "mutt":}$EMAIL_ICON%{A}"
+#     sleep $REFRESH_EMAIL
+# done > "$PANEL_FIFO" &
+
+# newsbeuter
+# while true; do
+#     UNREAD_NEWS=$(echo $(newsbeuter -x print-unread) | sed 's/[^0-9]*//g')
+#     if [[ -z $UNREAD_NEWS || $UNREAD_NEWS = 0 ]]; then
+# 	    newsline="$ICON_NEWS_NONE"
+#     else
+#         newsline="$ICON_NEWS_NEW %{F$COLOR_TEXT_FG} $UNREAD_NEWS%{F-}"
+#     fi
+#     echo -e "NEWS%{A:urxvtc -e "newsbeuter -r":}$newsline%{A}"
+#     sleep $REFRESH_NEWS
+# done > "$PANEL_FIFO" &
+
+# # wifi
+while true; do
+#   WIFI_SSID=$(iw $WIFI_INTERFACE link | grep 'SSID' | sed 's/SSID: //' | sed 's/\t//')
+    WIFI_SIGNAL=$(iw "$WIFI_INTERFACE" link | grep 'signal' | sed 's/signal: //' | sed 's/ dBm//' | sed 's/\t//')
+	if [[ $(iw "$WIFI_INTERFACE" link) != "Not connected." ]]; then
+		if [[ $WIFI_SIGNAL -ge -67 ]]; then
+			WIFI_COLOR=$COLOR_SIGNAL_HIGH
+		elif [[ $WIFI_SIGNAL -ge -70 && $WIFI_SIGNAL -lt -67 ]]; then
+			WIFI_COLOR=$COLOR_SIGNAL_MEDIUM
+		elif [[ $WIFI_SIGNAL -ge -80 && $WIFI_SIGNAL -lt -70 ]]; then
+			WIFI_COLOR=$COLOR_SIGNAL_LOW
+		fi
+		echo -e "LINK%{F$WIFI_COLOR}$ICON_WIFI_CONNECTED%{F-}"
+	else
+		WIFI_COLOR=$COLOR_SIGNAL_NONE
+		echo -e "LINK%{F$WIFI_COLOR}$ICON_WIFI_DISCONNECTED%{F-}"
+	fi
+    sleep $REFRESH_WIFI
+done > "$PANEL_FIFO" &
+
+# # music controls
+# while true; do
+
+#     medialine="%{F$COLOR_MEDIA_PAUSED}%{T3}%{A:mpc listall | mpc add; mpc shuffle; mpc play:}%{A3:mpd:}$ICON_MEDIA_BACK  $ICON_MEDIA_PLAY  $ICON_MEDIA_FORWARD%{A}%{A}%{T1}%{F-}"
+
+#     # check if mpv is running
+#     if [[ $(pgrep -cx mpv) -gt 0 ]]; then
+#         MEDIA_TITLE=$(mpv_get_title)
+#         if mpv_paused | grep -q 'yes'; then
+# 	    	# music is paused
+#     		medialine="%{F$COLOR_MEDIA_PAUSED}%{T3}%{A:mpv_previous:}$ICON_MEDIA_BACK %{A}%{A:mpv_toggle_playback:}%{A3:mpv_exit:}$MEDIA_TITLE%{A}%{A}%{A:mpv_next:} $ICON_MEDIA_FORWARD%{A}%{T1}%{F-}"
+# 		else
+# 	    	# music is playing
+#     		medialine="%{F$COLOR_MEDIA_PLAYING}%{T3}%{A:mpv_previous:}$ICON_MEDIA_BACK %{A}%{A:mpv_toggle_playback:}%{A3:mpv_next:}$MEDIA_TITLE%{A}%{A}%{A:mpv_next:} $ICON_MEDIA_FORWARD%{A}%{T1}%{F-}"
+#     	fi
+#     fi
+
+#     # check if mpd is running
+#     if [[ $(pgrep -cx mpd) -gt 0 && $(pgrep -cx mpv) = 0 ]]; then
+#     	MEDIA_TITLE=$(mpc current)
+#     	if [[ -z $MEDIA_TITLE ]]; then
+# 	    	# no music in playlist
+#     		medialine="%{F$COLOR_MEDIA_PAUSED}%{T3}%{A:mpc listall | mpc add; mpc shuffle; mpc play:}%{A3:mpd:}$ICON_MEDIA_BACK  $ICON_MEDIA_PLAY  $ICON_MEDIA_FORWARD%{A}%{A}%{T1}%{F-}"
+#     	else
+#             if mpc status | grep -q 'paused'; then
+# 		    	# music is paused
+#     			medialine="%{F$COLOR_MEDIA_PAUSED}%{T3}%{A:mpc prev:}$ICON_MEDIA_BACK %{A}%{A:mpc play:}%{A3:mpc clear:}$MEDIA_TITLE%{A}%{A}%{A:mpc next:} $ICON_MEDIA_FORWARD%{A}%{T1}%{F-}"
+#     		else
+# 	    		# music is playing
+#     			medialine="%{F$COLOR_MEDIA_PLAYING}%{T3}%{A:mpc prev:}$ICON_MEDIA_BACK %{A}%{A:mpc pause:}%{A3:mpc next:}$MEDIA_TITLE%{A}%{A}%{A:mpc next:} $ICON_MEDIA_FORWARD%{A}%{T1}%{F-}"
+#     		fi
+#     	fi
+#     fi
+
+#     echo -e "MUSIC$medialine"
+
+#     # wait for some time
+#     if [[ $(cat "$POWERSUPPLY/online") = 1 ]]; then
+#         sleep $REFRESH_MEDIA_FAST
+#     else
+#         sleep $REFRESH_MEDIA_SLOW
+#     fi
+# done > "$PANEL_FIFO" &
+
+# dump panel into panel_bar and then into lemonbar
+~/.config/bspwm/bar/panel_bar < "$PANEL_FIFO" | lemonbar \
+    -g x"$PANEL_HEIGHT" \
+    -f "$PANEL_FONT" \
+    -f "$ICON_FONT" \
+    -f "$ICON_FONT2" \
+    -F "$COLOR_FOREGROUND" \
+    -B "$COLOR_BACKGROUND" \
+    -u 2 \
+    | zsh &
+
+wait
