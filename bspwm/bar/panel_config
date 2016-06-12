@@ -5,7 +5,7 @@ NEWMAILDIR=$HOME/mail/gmail/gmail/new
 
 # Hardware
 WIFI_INTERFACE="wlp2s0"
-POWERSUPPLY="/sys/class/power_supply/AC0"
+POWERSUPPLY="/sys/class/power_supply/AC"
 BATTERY="/sys/class/power_supply/BAT0"
 
 # Refresh times in seconds
