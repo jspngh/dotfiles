@@ -59,6 +59,7 @@ while read -r line ; do
 		W*)
 			# bspwm internal state
 			wm_infos=""
+      wsnr=1
 			IFS=':'
 			set -- ${line#?}
 			while [ $# -gt 0 ] ; do
@@ -68,38 +69,50 @@ while read -r line ; do
 					M*)
 						# active monitor
 						if [ $num_mon -gt 1 ] ; then
-						    wm_infos="$wm_infos %{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_ACTIVE_MONITOR_BG}$PADDING${name}$PADDING%{B-}%{F-}  "
+						    desk="%{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_ACTIVE_MONITOR_BG}$PADDING${name}$PADDING%{B-}%{F-}  "
 						fi
 						;;
 					m*)
 						# inactive monitor
 						if [ $num_mon -gt 1 ] ; then
-						    wm_infos="$wm_infos %{F$COLOR_INACTIVE_MONITOR_FG}%{B$COLOR_INACTIVE_MONITOR_BG}$PADDING${name}$PADDING%{B-}%{F-}  "
+						    desk="%{F$COLOR_INACTIVE_MONITOR_FG}%{B$COLOR_INACTIVE_MONITOR_BG}$PADDING${name}$PADDING%{B-}%{F-}  "
 						fi
 						;;
 					O*)
 						# focused occupied desktop
-						wm_infos="${wm_infos}%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B$COLOR_FOCUSED_OCCUPIED_BG}%{U$COLOR_FOREGROUND}$PADDING${name}$PADDING%{B-}%{F-}"
-                        ;;
+						desk="%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B$COLOR_FOCUSED_OCCUPIED_BG}%{U$COLOR_FOREGROUND}$PADDING${name}$PADDING%{B-}%{F-}"
+            wm_infos="${wm_infos}%{A:bspc desktop -f "^$wsnr":}${desk}%{A}"
+            wsnr=$((wsnr+1))
+            ;;
 					F*)
 						# focused free desktop
-						wm_infos="${wm_infos}%{F$COLOR_FOCUSED_FREE_FG}%{B$COLOR_FOCUSED_FREE_BG}%{U$COLOR_FOREGROUND}$PADDING${name}$PADDING%{B-}%{F-}"
-                        ;;
+						desk="%{F$COLOR_FOCUSED_FREE_FG}%{B$COLOR_FOCUSED_FREE_BG}%{U$COLOR_FOREGROUND}$PADDING${name}$PADDING%{B-}%{F-}"
+            wm_infos="${wm_infos}%{A:bspc desktop -f "^$wsnr":}${desk}%{A}"
+            wsnr=$((wsnr+1))
+            ;;
 					U*)
 						# focused urgent desktop
-						wm_infos="${wm_infos}%{F$COLOR_FOCUSED_URGENT_FG}%{B$COLOR_FOCUSED_URGENT_BG}%{U$COLOR_FOREGROUND}$PADDING${name}$PADDING%{B-}%{F-}"
-                        ;;
+						desk="%{F$COLOR_FOCUSED_URGENT_FG}%{B$COLOR_FOCUSED_URGENT_BG}%{U$COLOR_FOREGROUND}$PADDING${name}$PADDING%{B-}%{F-}"
+            wm_infos="${wm_infos}%{A:bspc desktop -f "^$wsnr":}${desk}%{A}"
+            wsnr=$((wsnr+1))
+            ;;
 					o*)
 						# occupied desktop
-					    wm_infos="${wm_infos}%{F$COLOR_OCCUPIED_FG}%{B$COLOR_OCCUPIED_BG}$PADDING${name}$PADDING%{B-}%{F-}"
-						;;
+            desk="%{F$COLOR_OCCUPIED_FG}%{B$COLOR_OCCUPIED_BG}$PADDING${name}$PADDING%{B-}%{F-}"
+            wm_infos="${wm_infos}%{A:bspc desktop -f "^$wsnr":}${desk}%{A}"
+            wsnr=$((wsnr+1))
+            ;;
 					f*)
 						# free desktop
-						wm_infos="${wm_infos}%{F$COLOR_FREE_FG}%{B$COLOR_FREE_BG}$PADDING${name}$PADDING%{B-}%{F-}"
-						;;
+						desk="%{F$COLOR_FREE_FG}%{B$COLOR_FREE_BG}$PADDING${name}$PADDING%{B-}%{F-}"
+            wm_infos="${wm_infos}%{A:bspc desktop -f "^$wsnr":}${desk}%{A}"
+            wsnr=$((wsnr+1))
+            ;;
 					u*)
 						# urgent desktop
-						wm_infos="${wm_infos}%{F$COLOR_URGENT_FG}%{B$COLOR_URGENT_BG}$PADDING${name}$PADDING%{B-}%{F-}"
+						desk="%{F$COLOR_URGENT_FG}%{B$COLOR_URGENT_BG}$PADDING${name}$PADDING%{B-}%{F-}"
+            wm_infos="${wm_infos}%{A:bspc desktop -f "^$wsnr":}${desk}%{A}"
+            wsnr=$((wsnr+1))
 						;;
 				esac
 				shift

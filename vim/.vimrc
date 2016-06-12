@@ -49,7 +49,8 @@ Plug 'groenewege/vim-less'              " LESS
 Plug 'rust-lang/rust.vim'               " Rust
 Plug 'neovimhaskell/haskell-vim',       {'for': 'haskell'}
 Plug 'eagletmt/neco-ghc',               {'for': 'haskell'}
-Plug 'jakub-olczyk/cpp.vim'             " Qt
+Plug 'jakub-olczyk/cpp.vim',             " Qt
+Plug 'davidhalter/jedi-vim'             " Python
 " }}}
 call plug#end()
 

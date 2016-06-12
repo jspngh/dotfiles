@@ -41,7 +41,7 @@ done > "$PANEL_FIFO" &
 # battery
 while true; do
     BATT_LEVEL=$(acpi -b | grep -o '[[:digit:]]\+%' | sed 's/%//')
-    if [[ $(cat "$BATTERY/status") != "Charging" ]]; then
+    if [[ $(cat "$POWERSUPPLY/online") != 1 ]]; then
         if [[ $BATT_LEVEL -ge 80 ]]; then
 	    	BATT_ICON=$ICON_BATTERY_FULL
     	elif [[ $BATT_LEVEL -ge 60 && $BATT_LEVEL -lt 80 ]]; then
@@ -57,8 +57,9 @@ while true; do
         BATT_ICON=$ICON_BATTERY_CHARGING
     fi
 	#uncomment next and delete the line after that to see percentage
-	#echo -e $BATT_ICON %{F$COLOR_TEXT_FG} $BATT_LEVEL%%{F-}
-	echo -e BAT$BATT_ICON
+	echo -e BAT$BATT_ICON %{F$COLOR_TEXT_FG} $BATT_LEVEL%%{F-}
+	# echo -e BAT$BATT_ICON
+  echo
 	sleep $REFRESH_BATTERY
 done > "$PANEL_FIFO" &
 
@@ -78,7 +79,7 @@ while true; do
         VOLUME_ICON=$ICON_VOLUME_MUTE
     fi
     echo -e "VOL%{A:urxvtc -e "alsamixer":}$VOLUME_ICON%{A}"
-    if [[ $(cat "$BATTERY/status") = "Charging" ]]; then
+    if [[ $(cat "$POWERSUPPLY/online") = 1 ]]; then
         sleep $REFRESH_VOLUME_FAST
     else
         sleep $REFRESH_VOLUME_SLOW
