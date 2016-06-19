@@ -86,6 +86,12 @@ while true; do
     fi
 done > "$PANEL_FIFO" &
 
+# shut down button
+while true; do
+    echo -e "SESSION%{A:shutdown now:}$ICON_POWER_BUTTON%{A}"
+    sleep $REFRESH_STATIC
+done > "$PANEL_FIFO" &
+
 # # weechat (use hl2file weechat script)
 # while true; do
 #     UNREADMESSAGES=$(wc -l < "$MSGFILE")
