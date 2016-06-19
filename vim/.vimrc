@@ -35,6 +35,9 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 " Syntax error reporting
 Plug 'scrooloose/syntastic'
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 " Tag listing
 Plug 'majutsushi/tagbar'
 " Multiple cursor selection
@@ -108,6 +111,12 @@ let g:syntastic_error_symbol = "!"
 " let g:syntastic_python_checkers=['flake8']
 " let g:syntastic_python_python_exec = '/usr/bin/python2'
 let g:syntastic_python_flake8_args='--ignore=E501,F401'
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsEditSplit="vertical"
 
 " Tagbar
 nnoremap <silent> <leader>l :TagbarToggle<CR>
