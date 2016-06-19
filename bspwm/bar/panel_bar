@@ -40,6 +40,11 @@ while read -r line ; do
 			battery="$PADDING${line#???}$PADDING"
 			;;
 
+		SESSION*)
+			# power button output
+			session="%{F$COLOR_SESSION_FG}$PADDING${line#???????}$PADDING%{F-}"
+			;;
+
 # uncomment for window title support
 #		TITLE*)
 #			# xtitle output
@@ -119,5 +124,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm_infos}%{c}${music}%{r}${news}${messages}${email}${wifi}${volume}${battery}${date}${clock}"
+	printf "%s\n" "%{l}${wm_infos}%{c}${music}%{r}${news}${messages}${email}${wifi}${volume}${battery}${date}${clock}${session}"
 done
