@@ -1,0 +1,27 @@
+background no
+out_to_console yes
+out_to_x no
+update_interval 1.0
+total_run_times 0
+use_spacer none
+override_utf8_locale yes
+
+TEXT
+#
+# XFCE appfinder launcher
+#
+#^fg(\#f99157)^bg(\#515151)^ca(1, xfce4-appfinder)  ^fn(FontAwesome:size=15) ^fn()  ^ca()  \
+#
+# Pacman updates
+#
+# ^ca(1, ~/.config/dzen/scripts/check-updates.sh)^bg(\#666666)${if_match ${execpi 300 checkupdates | wc -l} != 0}^fg(\#beffbe)   ^fn(FontAwesome:size=13)P^fn()  ${execpi 300 checkupdates | wc -l} update(s)^fg()^bg()${else}^fg(\#333333)   ^fn(FontAwesome:size=13)P^fn() ${execpi 300 checkupdates | wc -l} update(s)^fg()^bg()${endif}^fg(\#666666)^i(/home/nemphis/.config/dzen/icons/mt1.xbm)^fg()^ca()   \
+#
+# System Info
+#
+# ^ca(1, ~/.config/dzen/scripts/sysinfo.sh)^fg(\#87d7ff)^fn(FontAwesome:size=13)^fn()  $kernel^bg(\#333333)^fg(\#666666)^i(/home/nemphis/.config/dzen/icons/mt1.xbm)^fg()^ca()^bg()   \
+\
+#
+# Time & Date
+#
+^ca(1, ~/.config/dzen/scripts/time-date.sh)^fn()^fg(\#99cc99)^bg(\#515151)^fn(FontAwesome:size=13)^fn()  ${time %a, %b %d} ^fg(\#515151) | ^fg(\#f99157)${time %H:%M %P}^bg(\#2d2d2d)^fg(\#515151)^i(/home/nemphis/.config/dzen/icons/powerline_big.xbm)^fg()^ca()\
+\

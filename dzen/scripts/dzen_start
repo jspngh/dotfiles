@@ -1,0 +1,7 @@
+#!/bin/sh
+
+ FG='#99cc99'
+ BG='#2d2d2d'
+ conky -c ~/.config/dzen/scripts/.conkyrcdzen1 | dzen2 -e - -h '32' -w '1300' -ta l -x '300' -y 0 -fg $FG -bg $BG -fn 'Ubuntu:size=12' &
+
+ conky -c ~/.config/dzen/scripts/.conkyrcdzen2 | dzen2 -e - -h '32' -w '960' -ta r -x '1600' -y 0 -fg $FG -bg $BG -fn 'Ubuntu:size=12' &

@@ -23,6 +23,7 @@ let s:search = "fb4934"
 
 " CTags specific colours
 let s:ctagsfunction = s:orange
+let s:ctagsmember = "719ba9"
 
 " Rust specific colours
 let s:rustfunction = s:aqua
@@ -322,7 +323,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   " CTags Highlighting
   call <SID>X("CTagsFunction", s:ctagsfunction, "", "")
-  call <SID>X("CTagsMember", s:green, "", "")
+  call <SID>X("CTagsMember", s:ctagsmember, "", "")
   call <SID>X("CTagsEnumeration", s:yellow, "", "")
   call <SID>X("CTagsEnumerationValue", s:yellow, "", "")
   call <SID>X("CTagsEnumerationName", s:purple, "", "")
