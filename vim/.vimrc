@@ -114,7 +114,7 @@ nnoremap <silent> <leader>l :TagbarToggle<CR>
 
 " YouCompleteMe
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-nnoremap <silent> <A-.> :YcmCompleter GoTo<CR>
+nnoremap <silent> <leader>g :YcmCompleter GoTo<CR>
 " Do not ask when starting vim
 let g:ycm_confirm_extra_conf = 0
 let g:syntastic_always_populate_loc_list = 1
@@ -337,9 +337,14 @@ augroup END
 " Python {{{
 augroup ft_python
   au!
-
-  au FileType python setlocal ts=4 sw=4 sts=4
-  au FileType python setlocal wrap wrapmargin=2 textwidth=160 colorcolumn=+1
+  au BufRead,BufNewFile
+      \ set tabstop=4
+      \ set softtabstop=4
+      \ set shiftwidth=4
+      \ set textwidth=79
+      \ set expandtab
+      \ set autoindent
+      \ set fileformat=unix
 augroup END
 " }}}
 " Ruby {{{
