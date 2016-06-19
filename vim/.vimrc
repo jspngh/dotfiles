@@ -121,6 +121,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 set tags+=./.tags
 let g:ycm_enable_diagnostic_highlighting = 1
+let g:ycm_goto_buffer_command = 'vertical-split'
 " locate the rust source code
 let g:ycm_rust_src_path = '/usr/local/src/rust/src'
 " add some bindings
@@ -339,7 +340,7 @@ augroup ft_python
   au!
 
   au FileType python setlocal ts=4 sw=4 sts=4
-  au FileType python setlocal wrap wrapmargin=2 textwidth=160 colorcolumn=+1
+  " au FileType python setlocal wrap wrapmargin=2 textwidth=160 colorcolumn=+1
 augroup END
 " }}}
 " Ruby {{{

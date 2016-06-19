@@ -1,0 +1,31 @@
+background no
+out_to_console yes
+out_to_x no
+update_interval 1.0
+total_run_times 0
+use_spacer none
+override_utf8_locale yes
+
+TEXT
+#
+# Volume control (left click mutes the volume)
+#
+^bg(\#2d2d2d)^fg(\#515151)^i(/home/nemphis/.config/dzen/icons/powerline_big_rev.xbm)^fg()\
+^ca(1, amixer set Master toggle)^bg(\#515151)   ${exec ~/.config/dzen/scripts/volume.sh}  ${exec amixer get Master | grep "Front Left:" | awk '{print $5}' | tr -d '[]'}   ^fg()^bg()^ca()\
+\
+#
+# PulseAudio Volume control and restarting dzen2
+#
+# ^ca(1, pavucontrol)^ca(3, killall dzen2 && dzen_start)  ^fg(\#e2abd4)^fn(FontAwesome:size=18)^fn()^fg()  ^ca()^ca()\
+#
+# Internet Connection
+#
+^ca(1, ~/.config/dzen/scripts/internet-state.sh)^bg(\#515151)${if_existing /sys/class/net/eno1/operstate up}  ^fn(FontAwesome:size=13)^fn()  ${else}${if_existing /sys/class/net/wlp10s0/operstate up}  ^fn(FontAwesome:size=13)^fn()  ${else}  ^fg(\#222222)^fn(FontAwesome:size=13)^fn()^fg()  ${endif}${endif}^ca()  ^bg()\
+#
+# XFCE appfinder launcher
+#
+^fg(\#f99157)^bg(\#515151)^ca(1, xfce4-appfinder)  ^fn(FontAwesome:size=15) ^fn()  ^ca()  \
+#
+# XFCE logout dialog
+#
+^ca(1, xfce4-session-logout)^fg(\#f99157)^bg(\#515151)   ^fn(FontAwesome:size=13)^fn()   ^ca()^bg()

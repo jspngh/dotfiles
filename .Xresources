@@ -11,6 +11,8 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 URxvt.geometry: 125x35
 
+! icon file
+URxvt*iconFile: /usr/share/icons/Paper/scalable/apps/utilities-terminal-symbolic.svg
 ! font
 URxvt*font: xft:Source\ Code\ Pro\ Medium:size=12:antialias=true:hinting=true
 

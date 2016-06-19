@@ -15,6 +15,9 @@
 # If you want to use XFCE config tools...
 #
 #xfce-mcs-manager &
-
+xset m 1 2
+feh --bg-fill ~/Pictures/wallpapers/abstract_shards.jpg &
 plank &
 redshift &
+/home/nemphis/.config/dzen/scripts/dzen_start &
+~/projects/fbpanel/panel/fbpanel &

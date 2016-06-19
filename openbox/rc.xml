@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Laza</name>
+    <name>Niflheim</name>
     <titleLayout>LIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -128,7 +128,7 @@
       <name>Misc</name>
       <name>Spare</name>
     </names>
-    <popupTime>875</popupTime>
+    <popupTime>500</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
        desktops.  Set this to 0 to disable the popup. -->
   </desktops>
@@ -153,7 +153,7 @@
      Many programs reserve space automatically, but you can use this in other
      cases. -->
   <margins>
-    <top>0</top>
+    <top>32</top>
     <bottom>0</bottom>
     <left>0</left>
     <right>0</right>
@@ -203,9 +203,33 @@
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Left">
+    <keybind key="S-W-Left">
       <action name="SendToDesktop">
         <to>left</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="S-W-1">
+      <action name="SendToDesktop">
+        <to>1</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="S-W-2">
+      <action name="SendToDesktop">
+        <to>2</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="S-W-3">
+      <action name="SendToDesktop">
+        <to>3</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="S-W-4">
+      <action name="SendToDesktop">
+        <to>4</to>
         <wrap>no</wrap>
       </action>
     </keybind>
@@ -319,6 +343,16 @@
     <keybind key="W-Return">
       <action name="Execute">
         <command>urxvtc</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-X">
+      <action name="Execute">
+        <command>xrandr --auto</command>
+      </action>
+    </keybind>
+    <keybind key="W-E">
+      <action name="Execute">
+        <command>thunar</command>
       </action>
     </keybind>
   </keyboard>
