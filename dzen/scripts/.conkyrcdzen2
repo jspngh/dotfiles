@@ -26,6 +26,6 @@ TEXT
 #
 ^fg(\#f99157)^bg(\#515151)^ca(1, xfce4-appfinder)  ^fn(FontAwesome:size=15) ^fn()  ^ca()  \
 #
-# XFCE logout dialog
+# Logout dialog
 #
-^ca(1, xfce4-session-logout)^fg(\#f99157)^bg(\#515151)   ^fn(FontAwesome:size=13)^fn()   ^ca()^bg()
+^ca(1, ~/.config/dzen/scripts/session.sh)^fg(\#f99157)^bg(\#515151)   ^fn(FontAwesome:size=13)^fn()   ^ca()^bg()

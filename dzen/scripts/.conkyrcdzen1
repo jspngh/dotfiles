@@ -23,5 +23,5 @@ TEXT
 #
 # Time & Date
 #
-^ca(1, ~/.config/dzen/scripts/time-date.sh)^fn()^fg(\#99cc99)^bg(\#515151)^fn(FontAwesome:size=13)^fn()  ${time %a, %b %d} ^fg(\#515151) | ^fg(\#f99157)${time %H:%M %P}^bg(\#2d2d2d)^fg(\#515151)^i(/home/nemphis/.config/dzen/icons/powerline_big.xbm)^fg()^ca()\
+^ca(1, ~/.config/dzen/scripts/time-date.sh)^fn()^fg(\#99cc99)^bg(\#515151)^fn(FontAwesome:size=13)^fn()  ${time %a, %b %d} ^fg(\#515151) | ^fg(\#f99157)${time %H:%M}^bg(\#2d2d2d)^fg(\#515151)^i(/home/nemphis/.config/dzen/icons/powerline_big.xbm)^fg()^ca()\
 \
