@@ -6,6 +6,7 @@
 * window managers:
   - i3
   - bspwm
+  - openbox
 * browser:
   - firefox
   - chrome
