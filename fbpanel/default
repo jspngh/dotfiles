@@ -127,57 +127,44 @@ Global {
   MaxElemHeight = 32
 }
 
-
-
-Plugin {
-  type = space
-  config {
-    size = 2
-  }
-}
-
-
-
-#         systemmenu {
-#         }
-#       separator {
-#       }
-#       menu {
-#         name = Computer
-#           icon = computer
-
-#           item {
-#             name = Terminal
-#               icon = terminal
-#               action = x-terminal
-#           }
-#         item {
-#           name = Lock Display
-#             icon = gnome-lockscreen
-#             action = slock
-#         }
-#         separator {
-#         }
-#         item {
-#           name = Reboot
-#             icon = gnome-session-reboot
-#             action = sudo reboot
-#         }
-#         item {
-#           name = Shutdown
-#             icon = gnome-session-halt
-#             action = sudo shutdown -h now
-#         }
-#         item {
-#           name = logout
-#             icon = gnome-session-logout
-#             action = /usr/lib/fbpanel/xlogout
-#         }
-#       }
-#     }
+# systemmenu {
 # }
+# separator {
+# }
+# menu {
+#   name = Computer
+#   icon = computer
 
-
+#   item {
+#     name = Terminal
+#     icon = terminal
+#     action = x-terminal
+#   }
+#   item {
+#     name = Lock Display
+#     icon = gnome-lockscreen
+#     action = slock
+#   }
+#   separator {
+#   }
+#   item {
+#     name = Reboot
+#     icon = gnome-session-reboot
+#     action = sudo reboot
+#   }
+#   item {
+#     name = Shutdown
+#     icon = gnome-session-halt
+#     action = sudo shutdown -h now
+#   }
+#   item {
+#     name = logout
+#     icon = gnome-session-logout
+#     action = /usr/lib/fbpanel/xlogout
+#   }
+# }
+# }
+# }
 
 # Plugin {
 #   type = space
@@ -185,7 +172,6 @@ Plugin {
 #       size = 15
 #     }
 # }
-
 
 # Plugin {
 #   type = launchbar
@@ -215,7 +201,6 @@ Plugin {
 #     }
 # }
 
-
 # Plugin {
 #   type = wincmd
 #     config {
@@ -224,15 +209,12 @@ Plugin {
 #     }
 # }
 
-
 # Plugin {
 #   type = space
 #     config {
 #       size = 15
 #     }
 # }
-
-
 
 # Plugin {
 #   type = taskbar
@@ -251,13 +233,13 @@ Plugin {
 Plugin {
   type = space
     config {
-      size = 15
+      size = 10
     }
 }
 
 Plugin {
   type = pager
-  padding = 20
+  padding = 15
     config {
       showwallpaper = false
     }
@@ -266,7 +248,7 @@ Plugin {
 Plugin {
   type = space
     config {
-      size = 10
+      size = 5
     }
 }
 
@@ -307,15 +289,15 @@ Plugin {
 #     config {
 #       size = 10
 #     }
-}
+# }
 
-# plugin {
+# Plugin {
 #   type = volume
 # }
 
-#plugin {
-#    type = battery
-#}
+# Plugin {
+#   type = battery
+# }
 
 # Plugin {
 #   type = tray
@@ -323,6 +305,13 @@ Plugin {
 
 # Plugin {
 #   type = space
+#     config {
+#       size = 3
+#     }
+# }
+
+# # Plugin {
+# #   type = space
 #     config {
 #       size = 10
 #     }

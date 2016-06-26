@@ -311,6 +311,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Include", s:blue, "", "")
 	"call <SID>X("Ignore", "666666", "", "")
 
+	" Syntastic Highlighting
+	call <SID>X("SyntasticError", s:red, s:yellow, "")
+	call <SID>X("SyntasticErrorSign", s:red, s:yellow, "")
+
   " C Highlighting
 	call <SID>X("cType", s:yellow, "", "")
 	call <SID>X("cOperator", s:aqua, "", "")

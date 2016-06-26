@@ -104,6 +104,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'lucius'
 
 " Syntastic
+nnoremap <F4> :SyntasticToggleMode<CR>
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_cpp_check_header = 1
