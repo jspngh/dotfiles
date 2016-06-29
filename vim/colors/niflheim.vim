@@ -4,16 +4,15 @@
 " Hex colour conversion functions borrowed from the theme "Desert256""
 
 " Default GUI colours
-let s:foreground = "c5c8c6"
+let s:olf_foreground = "c5c8c6"
+let s:foreground = "d1d4c5"
 let s:unfocused = "767876"
 let s:background = "1d1f21"
 let s:selection = "373b41"
 let s:line = "282a2e"
-let s:comment = "969896"
-let s:keyword = "a0b163"
 let s:red = "cc6666"
 let s:orange = "de935f"
-let s:yellow = "f0c674"
+let s:yellow = "ccab66"
 let s:green = "b5bd68"
 let s:aqua = "8abeb7"
 let s:blue = "81a2be"
@@ -21,13 +20,21 @@ let s:purple = "b294bb"
 let s:window = "4d5057"
 let s:search = "fb4934"
 
+let s:function = s:aqua
+let s:type = s:yellow
+let s:structure = s:yellow
+let s:constant = s:orange
+let s:string = s:orange
+let s:comment = "969896"
+let s:keyword = "81a2c3"
 " CTags specific colours
-let s:ctagsfunction = s:orange
-let s:ctagsmember = "719ba9"
+let s:ctagsfunction = s:function
+let s:ctagsmember = s:aqua
+" let s:ctagsmember = "81a2b1"
 
 " Rust specific colours
-let s:rustfunction = s:aqua
-let s:rustoperator = s:orange
+let s:rustfunction = s:function
+let s:rustoperator = s:foreground
 let s:rusttype = s:blue
 let s:rustmacro = s:blue
 let s:rustmodule = s:rusttype
@@ -299,14 +306,14 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Statement", s:foreground, "", "")
 	call <SID>X("Conditional", s:foreground, "", "")
 	call <SID>X("Repeat", s:foreground, "", "")
-	call <SID>X("Structure", s:purple, "", "")
-	call <SID>X("Function", s:blue, "", "")
-	call <SID>X("Constant", s:aqua, "", "")
-	call <SID>X("String", s:green, "", "")
+	call <SID>X("Structure", s:structure, "", "")
+	call <SID>X("Function", s:function, "", "")
+	call <SID>X("Constant", s:constant, "", "")
+	call <SID>X("String", s:string, "", "")
 	call <SID>X("Special", s:foreground, "", "")
 	call <SID>X("PreProc", s:purple, "", "")
 	call <SID>X("Operator", s:aqua, "", "none")
-	call <SID>X("Type", s:blue, "", "none")
+	call <SID>X("Type", s:type, "", "none")
 	call <SID>X("Define", s:purple, "", "none")
 	call <SID>X("Include", s:blue, "", "")
 	"call <SID>X("Ignore", "666666", "", "")
@@ -315,29 +322,29 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("SyntasticError", s:red, s:yellow, "")
 	call <SID>X("SyntasticErrorSign", s:red, s:yellow, "")
 
-  " C Highlighting
-	call <SID>X("cType", s:yellow, "", "")
-	call <SID>X("cOperator", s:aqua, "", "")
-	call <SID>X("cStatement", s:keyword, "", "")
-	call <SID>X("cString", s:red, "", "")
-	call <SID>X("cStructure", s:red, "", "")
-	call <SID>X("cStorageClass", s:purple, "", "")
-	call <SID>X("cConditional", s:purple, "", "")
-	call <SID>X("cRepeat", s:purple, "", "")
-
   " CTags Highlighting
   call <SID>X("CTagsFunction", s:ctagsfunction, "", "")
   call <SID>X("CTagsMember", s:ctagsmember, "", "")
   call <SID>X("CTagsEnumeration", s:yellow, "", "")
   call <SID>X("CTagsEnumerationValue", s:yellow, "", "")
   call <SID>X("CTagsEnumerationName", s:purple, "", "")
-  call <SID>X("CTagsStructure", s:blue, "", "")
+  call <SID>X("CTagsStructure", s:structure, "", "")
   call <SID>X("CTagsType", s:red, "", "")
   call <SID>X("CTagsModule", s:rustmodule, "", "")
   call <SID>X("CTagsTrait", s:rusttrait, "", "")
   call <SID>X("CTagsTraitImplementation", s:rusttrait, "", "")
-  call <SID>X("CTagsConstant", s:purple, "", "")
+  call <SID>X("CTagsConstant", s:red, "", "")
   call <SID>X("CTagsMacro", s:purple, "", "")
+
+  " C Highlighting
+	call <SID>X("cType", s:yellow, "", "")
+	call <SID>X("cOperator", s:aqua, "", "")
+	call <SID>X("cStatement", s:keyword, "", "")
+	call <SID>X("cString", s:string, "", "")
+	call <SID>X("cStructure", s:structure, "", "")
+	call <SID>X("cStorageClass", s:yellow, "", "")
+	call <SID>X("cConditional", s:yellow, "", "")
+	call <SID>X("cRepeat", s:yellow, "", "")
 
   " Rust Highlighting
   call <SID>X("CTagsRustFunction", s:ctagsfunction, "", "")

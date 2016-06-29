@@ -28,6 +28,7 @@ Plug 'Shougo/vimshell'
 Plug 'tpope/vim-commentary'
 " Color schemes
 Plug 'chriskempson/base16-vim'
+Plug 'flazz/vim-colorschemes'
 " Tag highlighting
 Plug 'vim-scripts/TagHighlight'
 " Autocompletion
@@ -303,6 +304,7 @@ augroup END
 augroup c_lang
   au!
   au Filetype cpp setlocal ts=4 sw=4 sts=4
+  au FileType cpp setlocal cms=//\ %s
   au Filetype c setlocal ts=4 sw=4 sts=4
 augroup END
 " }}}
