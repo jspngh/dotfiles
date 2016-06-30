@@ -10,8 +10,8 @@ TEXT
 #
 # Volume control (left click mutes the volume)
 #
-^bg(\#2d2d2d)^fg(\#515151)^i(/home/nemphis/.config/dzen/icons/powerline_big_rev.xbm)^fg()\
-^ca(1, amixer set Master toggle)^bg(\#515151)   ${exec ~/.config/dzen/scripts/volume.sh}  ${exec amixer get Master | grep "Front Left:" | awk '{print $5}' | tr -d '[]'}   ^fg()^bg()^ca()\
+^bg(\#202529)^fg(\#49493f)^i(/home/nemphis/.config/dzen/icons/powerline_big_rev.xbm)^fg()\
+^ca(1, amixer set Master toggle)^bg(\#49493f)   ${exec ~/.config/dzen/scripts/volume.sh}  ${exec amixer get Master | grep "Front Left:" | awk '{print $5}' | tr -d '[]'}   ^fg()^bg()^ca()\
 \
 #
 # PulseAudio Volume control and restarting dzen2
@@ -20,12 +20,12 @@ TEXT
 #
 # Internet Connection
 #
-^ca(1, ~/.config/dzen/scripts/internet-state.sh)^bg(\#515151)${if_existing /sys/class/net/eno1/operstate up}  ^fn(FontAwesome:size=13)^fn()  ${else}${if_existing /sys/class/net/wlp10s0/operstate up}  ^fn(FontAwesome:size=13)^fn()  ${else}  ^fg(\#222222)^fn(FontAwesome:size=13)^fn()^fg()  ${endif}${endif}^ca()  ^bg()\
+^ca(1, ~/.config/dzen/scripts/internet-state.sh)^bg(\#49493f)${if_existing /sys/class/net/eno1/operstate up}  ^fn(FontAwesome:size=13)^fn()  ${else}${if_existing /sys/class/net/wlp10s0/operstate up}  ^fn(FontAwesome:size=13)^fn()  ${else}  ^fg(\#222222)^fn(FontAwesome:size=13)^fn()^fg()  ${endif}${endif}^ca()  ^bg()\
 #
 # XFCE appfinder launcher
 #
-^fg(\#f99157)^bg(\#515151)^ca(1, xfce4-appfinder)  ^fn(FontAwesome:size=15) ^fn()  ^ca()  \
+^fg(\#ccab66)^bg(\#49493f)^ca(1, xfce4-appfinder)  ^fn(FontAwesome:size=15) ^fn()  ^ca()  \
 #
 # Logout dialog
 #
-^ca(1, ~/.config/dzen/scripts/session.sh)^fg(\#f99157)^bg(\#515151)   ^fn(FontAwesome:size=13)^fn()   ^ca()^bg()
+^ca(1, ~/.config/dzen/scripts/session.sh)^fg(\#ccab66)^bg(\#49493f)   ^fn(FontAwesome:size=13)^fn()   ^ca()^bg()

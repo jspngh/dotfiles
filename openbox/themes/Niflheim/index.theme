@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Niflheim
+Comment=You have been sent to Niflheim
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Niflheim
+MetacityTheme=Niflheim
+ButtonLayout=:minimize,maximize,close

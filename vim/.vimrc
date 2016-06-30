@@ -28,6 +28,7 @@ Plug 'Shougo/vimshell'
 Plug 'tpope/vim-commentary'
 " Color schemes
 Plug 'chriskempson/base16-vim'
+Plug 'flazz/vim-colorschemes'
 " Tag highlighting
 Plug 'vim-scripts/TagHighlight'
 " Autocompletion
@@ -104,6 +105,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'lucius'
 
 " Syntastic
+nnoremap <F4> :SyntasticToggleMode<CR>
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_cpp_check_header = 1
@@ -302,6 +304,7 @@ augroup END
 augroup c_lang
   au!
   au Filetype cpp setlocal ts=4 sw=4 sts=4
+  au FileType cpp setlocal cms=//\ %s
   au Filetype c setlocal ts=4 sw=4 sts=4
 augroup END
 " }}}
