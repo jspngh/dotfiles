@@ -13,7 +13,7 @@ bspc config focus_by_distance    true
 bspc config history_aware_focus  true
 
 # bspc monitor -d I II III IV V VI VII VIII IX X
-bspc monitor -d $(echo -e '\uf109') $(echo -e '\uf121') $(echo -e '\uf120') $(echo -e '\uf07c') $(echo -e '\uf0ac') $(echo -e '\uf0c3') $(echo -e '\uf1d0') $(echo -e '\uf1d1')
+bspc monitor -d $(echo -e '\uf109') $(echo -e '\uf121') $(echo -e '\uf120') $(echo -e '\uf07c') $(echo -e '\uf0ac') $(echo -e '\uf1d0') $(echo -e '\uf1d1')
 
 bspc rule -a Gimp floating=on follow=on
 # bspc rule -a Chromium desktop=^2

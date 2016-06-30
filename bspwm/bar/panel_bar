@@ -39,10 +39,13 @@ while read -r line ; do
 			# battery percent output
 			battery="$PADDING${line#???}$PADDING"
 			;;
-
-		SESSION*)
+		SESSION_SUSPEND*)
+			# suspend button output
+			susp="%{F$COLOR_SESSION_FG}$PADDING${line#???????????????}$PADDING%{F-}"
+			;;
+		SESSION_POWER*)
 			# power button output
-			session="%{F$COLOR_SESSION_FG}$PADDING${line#???????}$PADDING%{F-}"
+			power="%{F$COLOR_SESSION_FG}$PADDING${line#?????????????}$PADDING%{F-}"
 			;;
 
 # uncomment for window title support
@@ -124,5 +127,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm_infos}%{c}${music}%{r}${news}${messages}${email}${wifi}${volume}${battery}${date}${clock}${session}"
+	printf "%s\n" "%{l}${wm_infos}%{c}${music}%{r}${news}${messages}${email}${wifi}${volume}${battery}${date}${clock}${susp}${power}"
 done
