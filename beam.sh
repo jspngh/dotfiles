@@ -4,6 +4,7 @@
 ln -s .Xresources ~/.Xresources
 ln -s vim/.vimrc ~/.vimrc
 ln -s emacs/.emacs ~/.emacs
+ln -s .gtkrc-2.0 ~/.gtkrc-2.0.mine
 
 # Openbox
 mkdir ~/.config/openbox
