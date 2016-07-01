@@ -266,7 +266,7 @@ Plugin {
         item {
           name = Shutdown
             icon = gnome-session-halt
-            action = sudo shutdown -h now
+            action = shutdown now
         }
         item {
           name = logout

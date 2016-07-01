@@ -4,14 +4,14 @@
 " Hex colour conversion functions borrowed from the theme "Desert256""
 
 " Default GUI colours
-let s:olf_foreground = "c5c8c6"
-let s:foreground = "d1d4c5"
+let s:old_foreground = "c5c8c6"
+let s:foreground = "b5b59f"
 let s:unfocused = "767876"
 let s:background = "1d1f21"
 let s:selection = "373b41"
 let s:line = "282a2e"
 let s:red = "cc6666"
-let s:orange = "de935f"
+let s:orange = "de9363"
 let s:yellow = "ccab66"
 let s:green = "b5bd68"
 let s:aqua = "8abeb7"
@@ -20,13 +20,13 @@ let s:purple = "b294bb"
 let s:window = "4d5057"
 let s:search = "fb4934"
 
-let s:function = s:aqua
+let s:function = s:foreground
 let s:type = s:yellow
 let s:structure = s:yellow
-let s:constant = s:orange
+let s:constant = s:yellow
 let s:string = s:orange
-let s:comment = "969896"
-let s:keyword = "81a2c3"
+let s:comment = "7a987a"
+let s:keyword = s:blue
 " CTags specific colours
 let s:ctagsfunction = s:function
 let s:ctagsmember = s:aqua
@@ -300,7 +300,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Keyword", s:keyword, "", "")
 	call <SID>X("Comment", s:comment, "", "")
 	call <SID>X("Search", s:search, "", "")
-	call <SID>X("Todo", s:comment, s:background, "")
+	call <SID>X("Todo", s:aqua, s:background, "")
 	call <SID>X("Title", s:comment, "", "")
 	call <SID>X("Identifier", s:yellow, "", "none")
 	call <SID>X("Statement", s:foreground, "", "")
@@ -317,6 +317,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Define", s:purple, "", "none")
 	call <SID>X("Include", s:blue, "", "")
 	"call <SID>X("Ignore", "666666", "", "")
+
+	" NERDTree Highlighting
+	call <SID>X("NERDTreeDir", s:blue, "", "")
 
 	" Syntastic Highlighting
 	call <SID>X("SyntasticError", s:red, s:yellow, "")
@@ -345,6 +348,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("cStorageClass", s:yellow, "", "")
 	call <SID>X("cConditional", s:yellow, "", "")
 	call <SID>X("cRepeat", s:yellow, "", "")
+
+  " C++ Highlighting
+	call <SID>X("cppType", s:yellow, "", "")
+	call <SID>X("cppStatement", s:yellow, "", "")
 
   " Rust Highlighting
   call <SID>X("CTagsRustFunction", s:ctagsfunction, "", "")
