@@ -249,7 +249,7 @@ Plugin {
           item {
             name = Terminal
               icon = terminal
-              action = x-terminal
+              action = urxvtc
           }
         item {
           name = Lock Display
@@ -261,7 +261,7 @@ Plugin {
         item {
           name = Reboot
             icon = gnome-session-reboot
-            action = sudo reboot
+            action = reboot
         }
         item {
           name = Shutdown
@@ -269,7 +269,12 @@ Plugin {
             action = shutdown now
         }
         item {
-          name = logout
+          name = Suspend
+            icon = gnome-session-logout
+            action = systemctl suspend
+        }
+        item {
+          name = Logout
             icon = gnome-session-logout
             action = /usr/lib/fbpanel/xlogout
         }

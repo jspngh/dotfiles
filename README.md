@@ -12,5 +12,6 @@
   - chrome
 * music players:
   - cmus
+  - mpd/ncmpcpp
 * terminals:
   - urxvt

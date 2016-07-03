@@ -18,7 +18,6 @@ let s:aqua = "8abeb7"
 let s:blue = "81a2be"
 let s:purple = "b294bb"
 let s:window = "4d5057"
-let s:search = "fb4934"
 
 let s:function = s:foreground
 let s:type = s:yellow
@@ -27,6 +26,8 @@ let s:constant = s:yellow
 let s:string = s:orange
 let s:comment = "7a987a"
 let s:keyword = s:blue
+let s:search = "fefefe"
+let s:error = "454545"
 " CTags specific colours
 let s:ctagsfunction = s:function
 let s:ctagsmember = s:aqua
@@ -299,7 +300,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	" Standard Highlighting
 	call <SID>X("Keyword", s:keyword, "", "")
 	call <SID>X("Comment", s:comment, "", "")
-	call <SID>X("Search", s:search, "", "")
+	call <SID>X("Search", s:search, s:background, "")
 	call <SID>X("Todo", s:aqua, s:background, "")
 	call <SID>X("Title", s:comment, "", "")
 	call <SID>X("Identifier", s:yellow, "", "none")
@@ -322,8 +323,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("NERDTreeDir", s:blue, "", "")
 
 	" Syntastic Highlighting
-	call <SID>X("SyntasticError", s:red, s:yellow, "")
-	call <SID>X("SyntasticErrorSign", s:red, s:yellow, "")
+	call <SID>X("SyntasticError", s:red, s:error, "")
+	call <SID>X("SyntasticErrorSign", s:red, s:error, "")
 
   " CTags Highlighting
   call <SID>X("CTagsFunction", s:ctagsfunction, "", "")

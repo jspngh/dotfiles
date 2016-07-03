@@ -109,7 +109,7 @@ nnoremap <F4> :SyntasticToggleMode<CR>
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_cpp_check_header = 1
-let g:syntastic_error_symbol = "!"
+let g:syntastic_error_symbol = ">>"
 " let g:syntastic_python_checkers=['flake8']
 " let g:syntastic_python_python_exec = '/usr/bin/python2'
 let g:syntastic_python_flake8_args='--ignore=E501,F401'
