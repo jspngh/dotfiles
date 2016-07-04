@@ -21,7 +21,7 @@ ncmpcpp_directory = ~/.ncmpcpp
 ## (eg. ncmpc) also use that location.
 ##
 #
-#lyrics_directory = ~/.lyrics
+lyrics_directory = ~/.ncmpcpp/lyrics
 #
 ##### connection settings #####
 #
@@ -107,7 +107,7 @@ song_list_format                      = "{$2%a$2} {$5%t$5} $R {$3%b$3}   $6({$6%
 song_status_format                    = "{$2%a$2} {$3%b$3} {$5%t$5}"
 song_library_format                   = "%t"
 song_window_title_format              = "{%a-%t}"
-song_columns_list_format              = "(32)[red]{a} (32)[green]{b} (32)[blue]{t} $R(4)[magenta]{l}"
+song_columns_list_format              = "(32)[yellow]{a} (32)[green]{b} (32)[blue]{t} $R(4)[magenta]{l}"
 playlist_display_mode                 = "classic"
 browser_display_mode                  = "classic"
 
@@ -129,8 +129,8 @@ color1                                = "white"
 color2                                = "blue"
 progressbar_color                     = "black"
 statusbar_color                       = "cyan"
-active_column_color                   = "red"
-window_border_color                   = "red"
+active_column_color                   = "yellow"
+window_border_color                   = "yellow"
 active_window_border                  = "red"
 follow_now_playing_lyrics             = "yes"
 clock_display_seconds                 = "yes"
