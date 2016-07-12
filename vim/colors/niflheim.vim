@@ -7,7 +7,7 @@
 let s:old_foreground = "c5c8c6"
 let s:foreground = "b5b59f"
 let s:unfocused = "767876"
-let s:background = "1d1f21"
+let s:background = "292b2f"
 let s:selection = "373b41"
 let s:line = "282a2e"
 let s:red = "cc6666"
@@ -45,7 +45,7 @@ let s:rustkeyword = s:purple
 
 " Console 256 colours
 if !has("gui_running")
-	let s:background = "303030"
+	let s:background = ""
 	let s:window = "5e5e5e"
 	let s:line = "3a3a3a"
 	let s:selection = "585858"

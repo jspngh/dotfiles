@@ -16,7 +16,7 @@
 #
 #xfce-mcs-manager &
 xset m 1 2
-feh --bg-fill ~/Pictures/wallpapers/abstract_shards.jpg &
+feh --bg-fill ~/pictures/wallpapers/landscape_2.jpg &
 plank &
 redshift &
 ~/projects/fbpanel/panel/fbpanel &

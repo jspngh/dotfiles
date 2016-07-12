@@ -30,7 +30,8 @@
 
 ; font settings
 (custom-set-faces
- '(default ((t (:family "Source Code Pro" :foundry "ADBO" :slant normal :weight normal :height 120 :width normal)))))
+ '(default ((t (:family "Hack" :foundry "ADBO" :slant normal :weight normal :height 120 :width normal)))))
+ ;'(default ((t (:family "Source Code Pro" :foundry "ADBO" :slant normal :weight normal :height 120 :width normal)))))
 (global-linum-mode t)
 
 ; window settings
@@ -38,7 +39,7 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
-(when window-system (set-frame-size (selected-frame) 160 50))
+(when window-system (set-frame-size (selected-frame) 224 58))
 
 ; scrolling
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
@@ -52,7 +53,7 @@
 ; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
-;; Rust settings
+; rust
 (ensure-and-require 'rust-mode)
 (add-hook 'rust-mode-hook
           (lambda ()
@@ -88,6 +89,11 @@
 (ensure-and-require 'elm-mode)
 (add-hook 'elm-mode-hook #'elm-oracle-setup-completion)
 (add-to-list 'company-backends 'company-elm)
+
+; lua
+(ensure-and-require 'lua-mode)
+(ensure-and-require 'company-lua)
+(add-to-list 'company-backends 'company-lue)
 
 ; multi-web
 (ensure-and-require 'js2-mode)

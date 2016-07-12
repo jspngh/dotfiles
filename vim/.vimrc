@@ -68,7 +68,8 @@ let maplocalleader="\<Space>"
 
 " UI options {{{
 if has('gui_running')
-  set guifont=Source\Code\Pro\ Regular\ 12
+  set guifont=Fira\ Mono\ Regular\ 13
+  set linespace=2
 
   " Remove scrollbars
   set guioptions-=L
