@@ -24,14 +24,14 @@ menu.separator.color:           #1f1f1f
 
 
 # Active window
-window.active.border.color: #5a6976
+window.active.border.color: #3b3d42
 
-window.active.label.text.color: #8fa1ae
+window.active.label.text.color: #bc8c90
 window.active.label.bg: parentrelative
 window.active.text.justify: right
 window.active.title.bg: flat solid
 window.active.title.bg.color: #3b3d42
-window.active.title.separator.color: #6e7f8a
+window.active.title.separator.color: #bc8c90
 
 window.active.handle.bg: flat solid
 window.active.handle.bg.color: #3b3d42
@@ -41,11 +41,11 @@ window.active.grip.bg.color: #3b3d42
 
 window.active.button.unpressed.bg: flat solid
 window.active.button.unpressed.bg.color: #3b3d42
-window.active.button.unpressed.image.color: #6D715E
+window.active.button.unpressed.image.color: #bc8c90
 
 window.active.button.pressed.bg: flat solid
 window.active.button.pressed.bg.color: #3b3d42
-window.active.button.pressed.image.color: #2274AF
+window.active.button.pressed.image.color: #bc8c90
 
 window.active.button.disabled.bg: flat solid
 window.active.button.disabled.bg.color: #3b3d42
@@ -122,7 +122,7 @@ menu.title.text.font:shadow=n
 # Everything else
 border.width: 1
 padding.width: 8
-padding.height: 4
+padding.height: 8
 window.handle.width: 0
 window.client.padding.width: 0
 window.label.text.justify: left

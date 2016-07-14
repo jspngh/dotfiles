@@ -115,3 +115,19 @@ URxvt*scrollTtyKeypress: true
 *.color246: #a89984
 *.color248: #bdae93
 *.color250: #d5c4a1
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+! Use extended color scheme
+rofi.color-enabled:                  true
+! Color scheme for normal row
+rofi.color-normal:                   argb:00000000,  #A4AFB7 , argb:00000000,  #5A6976 ,  #3B3D42
+! Color scheme for urgent row
+rofi.color-urgent:                   argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #3B3D42
+! Color scheme for active row
+rofi.color-active:                   argb:00000000,  #FF00FF , argb:00000000,  #A4AFB7 ,  #5A6976
+! Color scheme window
+rofi.color-window:                   argb:ee3b3d42,  #695E5E ,  #695E5E
+! Separator style (none, dash, solid)
+rofi.separator-style:                solid

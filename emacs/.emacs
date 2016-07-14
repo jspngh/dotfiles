@@ -30,7 +30,7 @@
 
 ; font settings
 (custom-set-faces
- '(default ((t (:family "Hack" :foundry "ADBO" :slant normal :weight normal :height 120 :width normal)))))
+ '(default ((t (:family "Fira Mono" :foundry "ADBO" :slant normal :weight normal :height 120 :width normal)))))
  ;'(default ((t (:family "Source Code Pro" :foundry "ADBO" :slant normal :weight normal :height 120 :width normal)))))
 (global-linum-mode t)
 
