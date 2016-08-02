@@ -87,10 +87,10 @@
 
 ; elm
 (ensure-and-require 'elm-mode)
-(add-hook 'elm-mode-hook #'elm-oracle-setup-completion)
+;(add-hook 'elm-mode-hook #'elm-oracle-setup-completion)
 (add-to-list 'company-backends 'company-elm)
 
-; lua
+; Lua
 (ensure-and-require 'lua-mode)
 (ensure-and-require 'company-lua)
 (add-to-list 'company-backends 'company-lue)
