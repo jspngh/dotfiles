@@ -20,6 +20,7 @@ let s:purple = "b294bb"
 let s:window = "4d5057"
 
 let s:function = s:foreground
+let s:control = s:blue
 let s:type = s:yellow
 let s:structure = s:yellow
 let s:constant = s:yellow
@@ -333,7 +334,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("CTagsEnumerationValue", s:yellow, "", "")
   call <SID>X("CTagsEnumerationName", s:purple, "", "")
   call <SID>X("CTagsStructure", s:structure, "", "")
-  call <SID>X("CTagsType", s:red, "", "")
+  call <SID>X("CTagsType", s:yellow, "", "")
   call <SID>X("CTagsModule", s:rustmodule, "", "")
   call <SID>X("CTagsTrait", s:rusttrait, "", "")
   call <SID>X("CTagsTraitImplementation", s:rusttrait, "", "")
@@ -347,8 +348,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("cString", s:string, "", "")
 	call <SID>X("cStructure", s:structure, "", "")
 	call <SID>X("cStorageClass", s:yellow, "", "")
-	call <SID>X("cConditional", s:yellow, "", "")
-	call <SID>X("cRepeat", s:yellow, "", "")
+	call <SID>X("cConditional", s:control, "", "")
+	call <SID>X("cRepeat", s:control, "", "")
 
   " C++ Highlighting
 	call <SID>X("cppType", s:yellow, "", "")

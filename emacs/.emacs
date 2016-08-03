@@ -14,7 +14,6 @@
   (require package-name))
 
 (ensure-and-require 'color-theme-sanityinc-tomorrow)
-(ensure-and-require 'rust-mode)
 
 ; theme settings
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
@@ -31,7 +30,6 @@
 ; font settings
 (custom-set-faces
  '(default ((t (:family "Fira Mono" :foundry "ADBO" :slant normal :weight normal :height 120 :width normal)))))
- ;'(default ((t (:family "Source Code Pro" :foundry "ADBO" :slant normal :weight normal :height 120 :width normal)))))
 (global-linum-mode t)
 
 ; window settings
@@ -91,9 +89,11 @@
 (add-to-list 'company-backends 'company-elm)
 
 ; lua
+(setq lua-indent-level 2)
+
 (ensure-and-require 'lua-mode)
 (ensure-and-require 'company-lua)
-(add-to-list 'company-backends 'company-lue)
+(add-to-list 'company-backends 'company-lua)
 
 ; multi-web
 (ensure-and-require 'js2-mode)
