@@ -1,9 +1,3 @@
-##############################################################
-## This is the example configuration file. Copy it to       ##
-## $HOME/.ncmpcpp/config or $XDG_CONFIG_HOME/ncmpcpp/config ##
-## and set up your preferences.                             ##
-##############################################################
-#
 ##### directories ######
 ##
 ## Directory for storing ncmpcpp related files.
@@ -103,66 +97,6 @@ visualizer_look = "+|"
 ##
 #visualizer_color = 41, 83, 119, 155, 185, 215, 209, 203, 197, 161
 
-song_list_format                      = "{$2%a$2} {$5%t$5} $R {$3%b$3}   $6({$6%l})"
-song_status_format                    = "{$2%a$2} {$3%b$3} {$5%t$5}"
-song_library_format                   = "%t"
-song_window_title_format              = "{%a-%t}"
-song_columns_list_format              = "(32)[red]{a} (32)[green]{b} (32)[blue]{t} $R(4)[magenta]{l}"
-playlist_display_mode                 = "classic"
-browser_display_mode                  = "classic"
-
-progressbar_look                      = "◾◾◾"
-user_interface                        = "alternative"
-alternative_header_first_line_format  = "{$b$6%a$9} {$5%t$9}"
-alternative_header_second_line_format = "{$2%b$9} {$3(%y)$9}"
-alternative_ui_separator_color        = "blue"
-playlist_separate_albums              = "no"
-colors_enabled                        = "yes"
-empty_tag_color                       = "blue"
-header_window_color                   = "white"
-display_volume_level                  = "yes"
-state_line_color                      = "cyan"
-state_flags_color                     = "magenta"
-main_window_color                     = "green"
-main_window_highlight_color           = "blue"
-color1                                = "white"
-color2                                = "blue"
-progressbar_color                     = "black"
-statusbar_color                       = "cyan"
-active_column_color                   = "red"
-window_border_color                   = "red"
-active_window_border                  = "red"
-follow_now_playing_lyrics             = "yes"
-clock_display_seconds                 = "yes"
-
-##### system encoding #####
-##
-## ncmpcpp should detect your charset encoding
-## but if it failed to do so, you can specify
-## charset encoding you are using here.
-##
-## Note: You can see whether your ncmpcpp build
-## supports charset detection by checking output
-## of `ncmpcpp --version`.
-##
-## Note: Since MPD uses UTF-8 by default, setting
-## this option makes sense only if your encoding
-## is different.
-##
-#
-#system_encoding = ""
-#
-##### delays #####
-#
-## Time of inactivity (in seconds) after playlist
-## highlighting will be disabled (0 = always on).
-##
-#playlist_disable_highlight_delay = 5
-#
-## Defines how long messages are supposed to be visible.
-##
-#message_delay_time = 5
-#
 ##### song format #####
 ##
 ## For a song format you can use:
@@ -231,6 +165,67 @@ clock_display_seconds                 = "yes"
 ##
 ## Note: colors can be nested.
 ##
+
+song_list_format                      = "{$2%a$2} {$5%t$5} $R {$3%b$3}   $6({$6%l$6})"
+song_status_format                    = "{$2%a$2} {$3%b$3} {$5%t$5}"
+# song_library_format                   = "%t"
+# song_window_title_format              = "{%a-%t}"
+song_columns_list_format              = "(32)[blue]{t} (32)[red]{a} (32)[green]{b} $R(6)[magenta]{l}"
+# playlist_display_mode                 = "classic"
+# browser_display_mode                  = "classic"
+
+progressbar_look                      = "◾◾◾"
+user_interface                        = "alternative"
+alternative_header_first_line_format  = "{$b$6%a$9} {$5%t$9}"
+alternative_header_second_line_format = "{$2%b$9} {$3(%y)$9}"
+alternative_ui_separator_color        = "blue"
+playlist_separate_albums              = "no"
+colors_enabled                        = "yes"
+empty_tag_color                       = "blue"
+header_window_color                   = "white"
+display_volume_level                  = "yes"
+state_line_color                      = "cyan"
+state_flags_color                     = "magenta"
+main_window_color                     = "green"
+main_window_highlight_color           = "blue"
+color1                                = "white"
+color2                                = "blue"
+progressbar_color                     = "black"
+statusbar_color                       = "cyan"
+active_column_color                   = "red"
+window_border_color                   = "red"
+active_window_border                  = "red"
+follow_now_playing_lyrics             = "yes"
+clock_display_seconds                 = "yes"
+
+##### system encoding #####
+##
+## ncmpcpp should detect your charset encoding
+## but if it failed to do so, you can specify
+## charset encoding you are using here.
+##
+## Note: You can see whether your ncmpcpp build
+## supports charset detection by checking output
+## of `ncmpcpp --version`.
+##
+## Note: Since MPD uses UTF-8 by default, setting
+## this option makes sense only if your encoding
+## is different.
+##
+#
+#system_encoding = ""
+#
+##### delays #####
+#
+## Time of inactivity (in seconds) after playlist
+## highlighting will be disabled (0 = always on).
+##
+#playlist_disable_highlight_delay = 5
+#
+## Defines how long messages are supposed to be visible.
+##
+#message_delay_time = 5
+#
 #
 #song_list_format = {%a - }{%t}|{$8%f$9}$R{$3(%l)$9}
 #

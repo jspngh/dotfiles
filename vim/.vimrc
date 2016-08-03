@@ -53,8 +53,9 @@ Plug 'groenewege/vim-less'              " LESS
 Plug 'rust-lang/rust.vim'               " Rust
 Plug 'neovimhaskell/haskell-vim',       {'for': 'haskell'}
 Plug 'eagletmt/neco-ghc',               {'for': 'haskell'}
-Plug 'jakub-olczyk/cpp.vim',             " Qt
+Plug 'jakub-olczyk/cpp.vim',            " Qt
 Plug 'davidhalter/jedi-vim'             " Python
+Plug 'WolfgangMehner/lua-support'       " Lua
 " }}}
 call plug#end()
 
@@ -93,6 +94,8 @@ endif
 " NERDTree
 nnoremap <leader>, :NERDTreeToggle<esc>
 let NERDTreeIgnore = ['\.pyc$', '\.hi', '\.o']
+let NERDTreeShowHidden=1
+
 
 " Git
 nnoremap <leader>gs :Gstatus<CR>
@@ -367,6 +370,11 @@ augroup ft_ruby
   au FileType ruby call s:setupWrapping()
   " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
   au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
+  au BufRead,BufNewFile
+      \ set tabstop=4
+      \ set softtabstop=4
+      \ set shiftwidth=4
+      \ set textwidth=79
 augroup END
 " }}}
 " Qt {{{
