@@ -48,6 +48,11 @@
 (define-key evil-normal-state-map (kbd "M-.") #'racer-find-definition)
 (define-key evil-normal-state-map (kbd "M-,") #'pop-tag-mark)
 
+; auto-complete
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+(ac-config-default)
+
 ; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
