@@ -7,12 +7,12 @@ if [ "${TERM%%-*}" = 'linux' ]; then
 fi
 
 color00="29/2b/2f" # Base 00 - Black
-color01="99/8a/8b" # Base 08 - Red
-color02="6e/7f/8a" # Base 0B - Green
+color01="bc/6c/38" # Base 08 - Red
+color02="b3/a4/6e" # Base 0B - Green
 color03="f4/bf/75" # Base 0A - Yellow
-color04="45/85/88" # Base 0D - Blue
+color04="51/9d/a0" # Base 0D - Blue
 color05="d3/86/9b" # Base 0E - Magenta
-color06="68/9d/6a" # Base 0C - Cyan
+color06="b3/ca/6e" # Base 0C - Cyan
 color07="a4/af/b7" # Base 05 - White
 color08="75/71/5e" # Base 03 - Bright Black
 color09=$color01 # Base 08 - Bright Red
@@ -28,9 +28,9 @@ color18="38/38/30" # Base 01
 color19="49/48/3e" # Base 02
 color20="a5/9f/85" # Base 04
 color21="f5/f4/f1" # Base 06
-color_foreground="a4/af/b7" # Base 05
+color_foreground="b7/a6/97" # Base 05
 color_background="29/2b/2f" # Base 00
-color_cursor="a4/af/b7" # Base 05
+color_cursor="d9/b3/91" # Base 05
 
 if [ -n "$TMUX" ]; then
   # tell tmux to pass the escape sequences through

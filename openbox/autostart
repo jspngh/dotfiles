@@ -9,7 +9,7 @@ compton &
 # Mouse sensitivity
 xset m 1 2
 # Background
-feh --bg-fill ~/pictures/wallpapers/landscape_2.jpg &
+feh --bg-fill ~/pictures/wallpapers/landscape_3.jpg &
 # Plank menu
 plank &
 # Better color temperature at night

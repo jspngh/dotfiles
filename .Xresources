@@ -53,22 +53,23 @@ URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
 ! colors
-*.cursorColor:  #a4afb7
+*.cursorColor:  #b7a697
 ! hard contrast: *background: #1d2021
 *.background: #292b2f
 ! soft contrast: *background: #32302f
 ! old foreground
 ! *.foreground: #ebdbb2
-*.foreground: #a4afb7
+! *.foreground: #a4afb7
+*.foreground: #d9b391
 ! Black + DarkGrey
 *.color0:  #292b2f
 *.color8:  #928374
 ! DarkRed + Red
 *.color1:  #cc241d
-*.color9:  #fb4934
+*.color9:  #bc6c38
 ! DarkGreen + Green
 *.color2:  #98971a
-*.color10: #b8bb26
+*.color10: #b3a46e
 ! DarkYellow + Yellow
 *.color3:  #d79921
 *.color11: #fabd2f
