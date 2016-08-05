@@ -312,7 +312,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Function", s:function, "", "")
 	call <SID>X("Constant", s:constant, "", "")
 	call <SID>X("String", s:string, "", "")
-	call <SID>X("Special", s:foreground, "", "")
+	call <SID>X("Special", s:aqua, "", "")
 	call <SID>X("PreProc", s:purple, "", "")
 	call <SID>X("Operator", s:aqua, "", "none")
 	call <SID>X("Type", s:type, "", "none")
