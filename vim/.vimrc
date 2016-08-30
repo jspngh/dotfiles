@@ -1,65 +1,65 @@
-set nocompatible
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" Plugs {{{
-" Automatic installation {{{
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !mkdir -p ~/.vim/autoload
-    silent !curl -fLo ~/.vim/autoload/plug.vim \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    au VimEnter * PlugInstall
-endif
-" }}}
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-call plug#begin('~/.vim/plugged')
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
 " File explorer
-Plug 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 " Git
-Plug 'fugitive.vim'
-Plug 'airblade/vim-gitgutter'
+Plugin 'fugitive.vim'
+Plugin 'airblade/vim-gitgutter'
 " Airline (status bar)
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " Ack (grep-like)
-Plug 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim'
 " Executing commands in vim
-Plug 'Shougo/vimproc'
-Plug 'Shougo/vimshell'
+Plugin 'Shougo/vimproc'
+Plugin 'Shougo/vimshell'
 " Easy commenting out
-Plug 'tpope/vim-commentary'
+Plugin 'tpope/vim-commentary'
 " Color schemes
-Plug 'chriskempson/base16-vim'
-Plug 'flazz/vim-colorschemes'
+Plugin 'chriskempson/base16-vim'
+Plugin 'flazz/vim-colorschemes'
 " Tag highlighting
-Plug 'vim-scripts/TagHighlight'
+Plugin 'vim-scripts/TagHighlight'
 " Autocompletion
-Plug 'Valloric/YouCompleteMe'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 " Syntax error reporting
-Plug 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 " Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 " Tag listing
-Plug 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 " Multiple cursor selection
-Plug 'terryma/vim-multiple-cursors'
+Plugin 'terryma/vim-multiple-cursors'
 " Smooth scrolling
-Plug 'terryma/vim-smooth-scroll'
+Plugin 'terryma/vim-smooth-scroll'
 " Documentation
-Plug 'KabbAmine/zeavim.vim'
+Plugin 'KabbAmine/zeavim.vim'
 " Language-specific {{{
-Plug 'octol/vim-cpp-enhanced-highlight',{'for': 'cpp'}
-Plug 'groenewege/vim-less'              " LESS
-Plug 'rust-lang/rust.vim'               " Rust
-Plug 'neovimhaskell/haskell-vim',       {'for': 'haskell'}
-Plug 'eagletmt/neco-ghc',               {'for': 'haskell'}
-Plug 'jakub-olczyk/cpp.vim',            " Qt
-Plug 'davidhalter/jedi-vim'             " Python
-Plug 'WolfgangMehner/lua-support'       " Lua
+Plugin 'octol/vim-cpp-enhanced-highlight',{'for': 'cpp'}
+Plugin 'groenewege/vim-less'              " LESS
+Plugin 'rust-lang/rust.vim'               " Rust
+Plugin 'neovimhaskell/haskell-vim',       {'for': 'haskell'}
+Plugin 'eagletmt/neco-ghc',               {'for': 'haskell'}
+Plugin 'jakub-olczyk/cpp.vim',            " Qt
+Plugin 'davidhalter/jedi-vim'             " Python
+Plugin 'WolfgangMehner/lua-support'       " Lua
 " }}}
-call plug#end()
 
-" }}}
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+
 " Leader {{{
 
 let mapleader="\<Space>"
