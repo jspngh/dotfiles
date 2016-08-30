@@ -29,6 +29,8 @@ Plug 'tpope/vim-commentary'
 " Color schemes
 Plug 'chriskempson/base16-vim'
 Plug 'flazz/vim-colorschemes'
+" Tag listing
+Plug 'majutsushi/tagbar'
 " Tag highlighting
 Plug 'vim-scripts/TagHighlight'
 " Autocompletion
@@ -39,8 +41,6 @@ Plug 'scrooloose/syntastic'
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-" Tag listing
-Plug 'majutsushi/tagbar'
 " Multiple cursor selection
 Plug 'terryma/vim-multiple-cursors'
 " Smooth scrolling
@@ -48,14 +48,15 @@ Plug 'terryma/vim-smooth-scroll'
 " Documentation
 Plug 'KabbAmine/zeavim.vim'
 " Language-specific {{{
-Plug 'octol/vim-cpp-enhanced-highlight',{'for': 'cpp'}
-Plug 'groenewege/vim-less'              " LESS
-Plug 'rust-lang/rust.vim'               " Rust
-Plug 'neovimhaskell/haskell-vim',       {'for': 'haskell'}
-Plug 'eagletmt/neco-ghc',               {'for': 'haskell'}
-Plug 'jakub-olczyk/cpp.vim',            " Qt
-Plug 'davidhalter/jedi-vim'             " Python
-Plug 'WolfgangMehner/lua-support'       " Lua
+Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
+Plug 'groenewege/vim-less',              " LESS
+Plug 'rust-lang/rust.vim',               " Rust
+Plug 'rhysd/vim-crystal',                " Crystal
+Plug 'neovimhaskell/haskell-vim',        {'for': 'haskell'}
+Plug 'eagletmt/neco-ghc',                {'for': 'haskell'}
+Plug 'jakub-olczyk/cpp.vim',             " Qt
+Plug 'davidhalter/jedi-vim',             " Python
+Plug 'WolfgangMehner/lua-support',       " Lua
 " }}}
 call plug#end()
 
@@ -130,6 +131,8 @@ nnoremap <silent> <leader>l :TagbarToggle<CR>
 " YouCompleteMe
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 nnoremap <silent> <leader>g :YcmCompleter GoTo<CR>
+" Go back to previous location with <leader>b
+nnoremap <leader>b <C-o>
 " Do not ask when starting vim
 let g:ycm_confirm_extra_conf = 0
 let g:syntastic_always_populate_loc_list = 1

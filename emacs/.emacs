@@ -42,6 +42,9 @@
 ; scrolling
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 
+; no tabs
+(setq-default indent-tabs-mode nil)
+
 ; evil mode
 (require 'evil)
   (evil-mode 1)
