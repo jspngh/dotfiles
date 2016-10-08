@@ -17,18 +17,16 @@
 
 ; theme settings
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(custom-set-variables
- '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
- '(custom-safe-themes
-   (quote
-    ("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" \
-     "1157a4055504672be1df1232bed784ba575c60ab44d8e6c7b3800ae76b42f8bd" \
-     "cf08ae4c26cacce2eebff39d129ea0a21c9d7bf70ea9b945588c1c66392578d1" \
-     "f34b107e8c8443fe22f189816c134a2cc3b1452c8874d2a4b2e7bb5fe681a10b" \
-     default))))
+;(load-theme 'monokai t)
+(load-theme 'darktooth t)
+;(load-theme 'gruvbox t)
 
 ; font settings
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(default ((t (:family "Fira Mono" :foundry "ADBO" :slant normal :weight normal :height 120 :width normal)))))
 (global-linum-mode t)
 

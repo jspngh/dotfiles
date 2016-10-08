@@ -35,6 +35,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 " Syntax error reporting
 Plugin 'scrooloose/syntastic'
+" Close parenthesis, brackets, etc
+Plugin 'jiangmiao/auto-pairs'
 " Snippets
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -48,7 +50,7 @@ Plugin 'KabbAmine/zeavim.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight',{'for': 'cpp'}
 Plugin 'groenewege/vim-less'              " LESS
 Plugin 'rust-lang/rust.vim'               " Rust
-Plugin 'rhysd/vim-crystal',                " Crystal
+Plugin 'rhysd/vim-crystal',               " Crystal
 Plugin 'neovimhaskell/haskell-vim',       {'for': 'haskell'}
 Plugin 'eagletmt/neco-ghc',               {'for': 'haskell'}
 Plugin 'jakub-olczyk/cpp.vim',            " Qt
@@ -94,7 +96,7 @@ endif
 
 " NERDTree
 nnoremap <leader>, :NERDTreeToggle<esc>
-let NERDTreeIgnore = ['\.pyc$', '\.hi', '\.o']
+let NERDTreeIgnore = ['\.pyc$', '\.hi', '\.o', '\.pdf', '\.taghl', '.ycm_extra_conf.py']
 let NERDTreeShowHidden=1
 
 
@@ -106,6 +108,10 @@ nnoremap <leader>gC :Gcommit<CR>
 nnoremap <leader>gP :Git push<CR>
 
 " Airline
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#show_tabs = 0
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'lucius'
 
@@ -131,10 +137,12 @@ nnoremap <silent> <leader>l :TagbarToggle<CR>
 " YouCompleteMe
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 nnoremap <silent> <leader>g :YcmCompleter GoTo<CR>
+nnoremap <silent> <leader>d :YcmCompleter GetDoc<CR>
 " Go back to previous location with <leader>b
 nnoremap <leader>b <C-o>
 " Do not ask when starting vim
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 set tags+=./.tags

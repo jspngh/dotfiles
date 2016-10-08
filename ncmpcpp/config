@@ -27,7 +27,7 @@ lyrics_directory = ~/.ncmpcpp/lyrics
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = "/run/media/nemphis/HDD/Program Files/Files/Music/"
+mpd_music_dir = "/run/media/nemphis/c1dac181-6b79-4dd4-82a7-1b58224d2266/Music/"
 #
 #mpd_crossfade_time = 5
 #

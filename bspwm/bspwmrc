@@ -4,7 +4,7 @@ sxhkd &
 
 bspc config border_width        2
 bspc config window_gap          8
-bspc config top_padding         50
+bspc config top_padding         60
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
@@ -21,5 +21,6 @@ bspc rule -a mplayer2 floating=on
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-feh --bg-fill ~/Pictures/Wallpapers/nature_wallpaper.jpg &
+feh --bg-fill ~/Pictures/Wallpapers/mountain_wallpaper_3.jpg &
+redshift &
 ~/.config/bspwm/bar/panel &
