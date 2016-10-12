@@ -88,13 +88,14 @@ URxvt.scrollBar: false
 ! Use extended color scheme
 rofi.color-enabled:                  true
 ! Color scheme for normal row
-rofi.color-normal:                   argb:00000000,  #e5d09a, argb:00000000,  #e5d09a,  #1B2B34
+! 9bcac0
+rofi.color-normal:                   argb:00000000,  #9bcac0, argb:00000000,  #9bcac0,  #1B2B34
 ! Color scheme for urgent row
 rofi.color-urgent:                   argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #1B2B34
 ! Color scheme for active row
 rofi.color-active:                   argb:00000000,  #6699CC , argb:00000000,  #6699CC ,  #1B2B34
 ! Color scheme window
-rofi.color-window:                   argb:ee282828,  #e5d09a ,  #FAC863
+rofi.color-window:                   argb:ee363639,  #6d9b9b,  #FAC863
 ! Separator style (none, dash, solid)
 rofi.separator-style:                solid
 
