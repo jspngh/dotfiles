@@ -136,8 +136,6 @@ done > "$PANEL_FIFO" &
 
 # # internet connection
 while true; do
-  WIRED_CONNECTION = $(ip link show "$WIRED_INTERFACE"| sed -n -e 's/^.*state //p' | cut -f1 -d ' ')
-  TEST = $(iw "$WIFI_INTERFACE" link)
   # WIFI_SSID=$(iw $WIFI_INTERFACE link | grep 'SSID' | sed 's/SSID: //' | sed 's/\t//')
   WIFI_SIGNAL=$(iw "$WIFI_INTERFACE" link | grep 'signal' | sed 's/signal: //' | sed 's/ dBm//' | sed 's/\t//')
 
@@ -155,7 +153,7 @@ while true; do
     echo -e "LINK%{F$WIFI_COLOR}$ICON_WIFI_CONNECTED%{F-}"
   else
     WIFI_COLOR=$COLOR_SIGNAL_NONE
-    echo -e "LINK%{F$WIFI_COLOR}$TEST $WIRED_CONNECTION $ICON_WIFI_DISCONNECTED%{F-}"
+    echo -e "LINK%{F$WIFI_COLOR}$ICON_WIFI_DISCONNECTED%{F-}"
   fi
   sleep $REFRESH_WIFI
 done > "$PANEL_FIFO" &

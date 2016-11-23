@@ -9,8 +9,13 @@ Xft.antialias: 1
 Xft.rgba: rgb
 Xft.dpi: 178
 
+! geometry
+URxvt*geometry: 100x32
 ! font
-URxvt*font: xft:Source\ Code\ Pro\ Medium:size=12:antialias=true:hinting=true
+!URxvt*font: xft:Source\ Code\ Pro\ Medium:size=12:antialias=true:hinting=true
+!URxvt*font: xft:Fira\ Mono\ for\ Powerline:size=12:antialias=true:hinting=true
+URxvt*font: xft:Roboto\ Mono\ for\ Powerline:size=13
+
 ! cursor
 Xcursor.size: 48
 ! terminal padding

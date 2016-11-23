@@ -2,18 +2,18 @@
 
 sxhkd &
 
-bspc config border_width        2
-bspc config window_gap          8
-bspc config top_padding         60
+bspc config top_padding         58
+# bspc config border_width        2
+# bspc config window_gap          8
 
-bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
-bspc config focus_by_distance    true
-bspc config history_aware_focus  true
+# bspc config split_ratio          0.52
+# bspc config borderless_monocle   true
+# bspc config gapless_monocle      true
+# bspc config focus_by_distance    true
+# bspc config history_aware_focus  true
 
 # bspc monitor -d I II III IV V VI VII VIII IX X
-bspc monitor -d $(echo -e '\uf109') $(echo -e '\uf121') $(echo -e '\uf120') $(echo -e '\uf07c') $(echo -e '\uf0ac') $(echo -e '\uf1d0') $(echo -e '\uf1d1')
+bspc monitor -d $(echo -e '\uf109') $(echo -e '\uf0ac') $(echo -e '\uf121') $(echo -e '\uf120') $(echo -e '\uf07c') $(echo -e '\uf025') $(echo -e '\uf17c')
 
 bspc rule -a Gimp floating=on follow=on
 # bspc rule -a Chromium desktop=^2
@@ -21,6 +21,6 @@ bspc rule -a mplayer2 floating=on
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-feh --bg-fill ~/Pictures/Wallpapers/mountain_wallpaper_3.jpg &
+feh --bg-fill ~/pictures/Wallpapers/mountain_wallpaper_3.jpg &
 redshift &
 ~/.config/bspwm/bar/panel &

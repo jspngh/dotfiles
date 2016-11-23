@@ -1,0 +1,22 @@
+{
+  "segments": {
+    "left": [
+    ],
+    "right": [
+      {
+        "function": "powerline.segments.common.players.mpd",
+        "name": "player"
+      },
+      {
+        "function": "powerline.segments.common.time.date",
+        "args": {
+          "format": "%H:%M",
+          "istime": true
+        }
+      },
+      {
+        "function": "powerline.segments.common.net.hostname"
+      }
+    ]
+  }
+}
