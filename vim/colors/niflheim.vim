@@ -350,6 +350,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("cStorageClass", s:yellow, "", "")
 	call <SID>X("cConditional", s:control, "", "")
 	call <SID>X("cRepeat", s:control, "", "")
+	call <SID>X("cTodo", s:orange, "", "")
 
   " C++ Highlighting
 	call <SID>X("cppType", s:yellow, "", "")

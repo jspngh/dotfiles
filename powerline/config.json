@@ -1,0 +1,11 @@
+{
+  "common": {
+    "log_file": "/tmp/powerline.log",
+    "log_level": "DEBUG"
+  },
+  "ext": {
+    "tmux": {
+      "colorscheme": "niflheim"
+    }
+  }
+}
