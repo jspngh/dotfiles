@@ -19,15 +19,15 @@ lyrics_directory = ~/.ncmpcpp/lyrics
 #
 ##### connection settings #####
 #
-#mpd_host = localhost
+mpd_host = 178.18.20.116
 #
-#mpd_port = 6600
+mpd_port = 8000
 #
 #mpd_connection_timeout = 5
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = "/run/media/nemphis/c1dac181-6b79-4dd4-82a7-1b58224d2266/Music/"
+#mpd_music_dir = "/run/media/nemphis/c1dac181-6b79-4dd4-82a7-1b58224d2266/Music/"
 #
 #mpd_crossfade_time = 5
 #

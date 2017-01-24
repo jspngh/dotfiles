@@ -111,8 +111,8 @@ nnoremap <leader>gP :Git push<CR>
 " Airline
 "let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#show_tabs = 0
-"let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'lucius'
 
@@ -121,6 +121,7 @@ nnoremap <F4> :SyntasticToggleMode<CR>
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_compiler_options = '-std=c++11'
 let g:syntastic_error_symbol = ">>"
 " let g:syntastic_python_checkers=['flake8']
 " let g:syntastic_python_python_exec = '/usr/bin/python2'
@@ -138,6 +139,7 @@ nnoremap <silent> <leader>l :TagbarToggle<CR>
 " YouCompleteMe
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 nnoremap <silent> <leader>g :YcmCompleter GoTo<CR>
+nnoremap <silent> <leader>f :YcmCompleter FixIt<CR>
 nnoremap <silent> <leader>d :YcmCompleter GetDoc<CR>
 " Go back to previous location with <leader>b
 nnoremap <leader>b <C-o>

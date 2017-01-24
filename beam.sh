@@ -20,3 +20,6 @@ ln -s openbox/environment ~/.config/openbox/
 ln -s openbox/menu.xml ~/.config/openbox/
 ln -s openbox/rc.xml ~/.config/openbox/
 cp -R openbox/themes/* ~/.themes/
+
+# tmux
+ln -s tmux/tmux.conf ~/.tmux.conf
