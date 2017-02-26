@@ -322,8 +322,11 @@ augroup END
 augroup c_lang
   au!
   au Filetype cpp setlocal ts=4 sw=4 sts=4
-  au FileType cpp setlocal cms=//\ %s
   au Filetype c setlocal ts=4 sw=4 sts=4
+  au FileType c setlocal cms=//\ %s
+  au FileType cpp setlocal cms=//\ %s
+  au FileType cpp setlocal foldmethod=syntax foldlevel=20
+  au FileType c setlocal foldmethod=syntax foldlevel=20
 augroup END
 " }}}
 " Haskell {{{

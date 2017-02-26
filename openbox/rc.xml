@@ -120,13 +120,15 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>4</number>
+    <number>6</number>
     <firstdesk>1</firstdesk>
     <names>
       <name>General</name>
       <name>Programming</name>
+      <name>Terms</name>
+      <name>Files</name>
+      <name>Music</name>
       <name>Misc</name>
-      <name>Spare</name>
     </names>
     <popupTime>0</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -233,6 +235,18 @@
         <wrap>no</wrap>
       </action>
     </keybind>
+    <keybind key="S-W-5">
+      <action name="SendToDesktop">
+        <to>5</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
+    <keybind key="S-W-6">
+      <action name="SendToDesktop">
+        <to>6</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
     <keybind key="S-A-Right">
       <action name="SendToDesktop">
         <to>right</to>
@@ -269,6 +283,16 @@
     <keybind key="W-4">
       <action name="GoToDesktop">
         <to>4</to>
+      </action>
+    </keybind>
+    <keybind key="W-5">
+      <action name="GoToDesktop">
+        <to>5</to>
+      </action>
+    </keybind>
+    <keybind key="W-6">
+      <action name="GoToDesktop">
+        <to>6</to>
       </action>
     </keybind>
     <keybind key="W-d">
@@ -364,6 +388,9 @@
       <action name="Unmaximize"/>
     </keybind>
     <keybind key="W-k">
+      <action name="Maximize"/>
+    </keybind>
+    <keybind key="W-f">
       <action name="Maximize"/>
     </keybind>
     <!-- Keybindings for running applications -->

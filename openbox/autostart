@@ -9,7 +9,7 @@ compton &
 # Mouse sensitivity
 xset m 1 2
 # Background
-feh --bg-fill ~/pictures/wallpapers/tetris_cube.jpg &
+feh --bg-fill ~/pictures/wallpapers/no_mans_sky.png &
 # Plank menu
 plank &
 # Better color temperature at night

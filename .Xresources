@@ -14,7 +14,9 @@ URxvt.geometry: 125x35
 ! icon file
 URxvt*iconFile: /usr/share/icons/Paper/scalable/apps/utilities-terminal-symbolic.svg
 ! font
-URxvt*font: xft:Source\ Code\ Pro\ Medium:size=12:antialias=true:hinting=true
+!URxvt*font: xft:Source\ Code\ Pro\ for\ Powerline:size=12:antialias=true:hinting=true
+!URxvt*font: xft:Fira\ Mono\ for\ Powerline:size=12:antialias=true:hinting=true
+URxvt*font: xft:Droid\ Sans\ Mono\ for\ Powerline:size=12:antialias=true:hinting=true
 
 ! terminal padding
 URxvt.internalBorder: 20

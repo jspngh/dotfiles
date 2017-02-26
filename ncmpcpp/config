@@ -19,9 +19,9 @@ lyrics_directory = ~/.ncmpcpp/lyrics
 #
 ##### connection settings #####
 #
-mpd_host = 178.18.20.116
+mpd_host = localhost
 #
-mpd_port = 8000
+mpd_port = 6600
 #
 #mpd_connection_timeout = 5
 #
