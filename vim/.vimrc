@@ -30,6 +30,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/TagHighlight'
 " Tag listing
 Plugin 'majutsushi/tagbar'
+" Cscope helper
+Plugin 'vim-scripts/cscope.vim'
 " Autocompletion
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable' }
@@ -48,14 +50,15 @@ Plugin 'terryma/vim-smooth-scroll'
 Plugin 'KabbAmine/zeavim.vim'
 " Language-specific {{{
 Plugin 'octol/vim-cpp-enhanced-highlight',{'for': 'cpp'}
-Plugin 'groenewege/vim-less'              " LESS
-Plugin 'rust-lang/rust.vim'               " Rust
+Plugin 'groenewege/vim-less',             " LESS
+Plugin 'rust-lang/rust.vim',              " Rust
 Plugin 'rhysd/vim-crystal',               " Crystal
 Plugin 'neovimhaskell/haskell-vim',       {'for': 'haskell'}
 Plugin 'eagletmt/neco-ghc',               {'for': 'haskell'}
 Plugin 'jakub-olczyk/cpp.vim',            " Qt
-Plugin 'davidhalter/jedi-vim'             " Python
-Plugin 'WolfgangMehner/lua-support'       " Lua
+Plugin 'davidhalter/jedi-vim',            " Python
+Plugin 'WolfgangMehner/lua-support',      " Lua
+Plugin 'lervag/vimtex',                   " Latex
 " }}}
 
 call vundle#end()            " required
@@ -86,7 +89,7 @@ if has('gui_running')
   set guioptions=-t
 
   " Default size
-  set lines=55 columns=230
+  set lines=40 columns=130
 else
   noremap <silent> <ScrollWheelUp> :call smooth_scroll#up(&scroll/3, 0, 2)<CR>
   noremap <silent> <ScrollWheelDown> :call smooth_scroll#down(&scroll/3, 0, 2)<CR>
@@ -134,7 +137,27 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
 
 " Tagbar
-nnoremap <silent> <leader>l :TagbarToggle<CR>
+" nnoremap <silent> <leader>l :TagbarToggle<CR>
+
+" Cscope
+nnoremap <leader>fa :call cscope#findInteractive(expand('<cword>'))<CR>
+"nnoremap <leader>l :call ToggleLocationList()<CR>
+" s: Find this C symbol
+nnoremap  <leader>fs :call cscope#find('s', expand('<cword>'))<CR>
+" g: Find this definition
+nnoremap  <leader>fg :call cscope#find('g', expand('<cword>'))<CR>
+" d: Find functions called by this function
+nnoremap  <leader>fd :call cscope#find('d', expand('<cword>'))<CR>
+" c: Find functions calling this function
+nnoremap  <leader>fc :call cscope#find('c', expand('<cword>'))<CR>
+" t: Find this text string
+nnoremap  <leader>ft :call cscope#find('t', expand('<cword>'))<CR>
+" e: Find this egrep pattern
+nnoremap  <leader>fe :call cscope#find('e', expand('<cword>'))<CR>
+" f: Find this file
+nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
+" i: Find files #including this file
+nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
 
 " YouCompleteMe
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
@@ -160,6 +183,12 @@ let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 " Haskell autocompletion
 let g:haskellmode_completion_ghc = 0
 
+" VimTeX
+let g:vimtex_view_general_viewer = 'qpdfview'
+let g:vimtex_view_general_options
+  \ = '--unique @pdf\#src:@tex:@line:@col'
+let g:vimtex_view_general_options_latexmk = '--unique'
+let g:tex_flavor = "latex"
 " }}}
 
 " General options {{{
@@ -240,7 +269,6 @@ noremap L lg_
 " Shift+Enter for newline {{{
 noremap <S-Enter> o<Esc>
 " }}}
-
 
 " Easy line moving {{{
 function! MoveLineUp()
