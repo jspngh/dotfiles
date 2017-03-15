@@ -8,47 +8,45 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" File explorer
+" " File explorer
 Plugin 'scrooloose/nerdtree'
-" Git
+" " Git
 Plugin 'fugitive.vim'
 Plugin 'airblade/vim-gitgutter'
-" Airline (status bar)
+" " Airline (status bar)
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Ack (grep-like)
+" " Ack (grep-like)
 Plugin 'mileszs/ack.vim'
-" Executing commands in vim
+" " Executing commands in vim
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/vimshell'
-" Easy commenting out
+" " Easy commenting out
 Plugin 'tpope/vim-commentary'
-" Color schemes
+" " Color schemes
 Plugin 'chriskempson/base16-vim'
 Plugin 'flazz/vim-colorschemes'
-" Tag highlighting
+" " Tag highlighting
 Plugin 'vim-scripts/TagHighlight'
-" Tag listing
+" " Tag listing
 Plugin 'majutsushi/tagbar'
-" Cscope helper
-Plugin 'vim-scripts/cscope.vim'
-" Autocompletion
+" " Autocompletion
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-" Syntax error reporting
+" " Syntax error reporting
 Plugin 'scrooloose/syntastic'
-" Close parenthesis, brackets, etc
+" " Close parenthesis, brackets, etc
 Plugin 'jiangmiao/auto-pairs'
-" Snippets
+" " Snippets
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-" Multiple cursor selection
+" " Multiple cursor selection
 Plugin 'terryma/vim-multiple-cursors'
-" Smooth scrolling
+" " Smooth scrolling
 Plugin 'terryma/vim-smooth-scroll'
-" Documentation
+" " Documentation
 Plugin 'KabbAmine/zeavim.vim'
-" Language-specific {{{
+" " Language-specific {{{
 Plugin 'octol/vim-cpp-enhanced-highlight',{'for': 'cpp'}
 Plugin 'groenewege/vim-less',             " LESS
 Plugin 'rust-lang/rust.vim',              " Rust
@@ -57,9 +55,9 @@ Plugin 'neovimhaskell/haskell-vim',       {'for': 'haskell'}
 Plugin 'eagletmt/neco-ghc',               {'for': 'haskell'}
 Plugin 'jakub-olczyk/cpp.vim',            " Qt
 Plugin 'davidhalter/jedi-vim',            " Python
-Plugin 'WolfgangMehner/lua-support',      " Lua
+" Plugin 'WolfgangMehner/lua-support',      " Lua
 Plugin 'lervag/vimtex',                   " Latex
-" }}}
+" " }}}
 
 call vundle#end()            " required
 filetype plugin indent on    " required

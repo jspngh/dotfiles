@@ -407,6 +407,17 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("pythonException", s:purple, "", "")
 	call <SID>X("pythonFunction", s:blue, "", "")
 
+	" Lua Highlighting
+	call <SID>X("luaFunction", s:yellow, "", "")
+	call <SID>X("luaFunc", s:blue, "", "")
+	call <SID>X("luaComment", s:comment, "", "")
+	call <SID>X("luaStatement", s:purple, "", "")
+	call <SID>X("luaCond", s:blue, "", "")
+	call <SID>X("luaRepeat", s:purple, "", "")
+	call <SID>X("luaTable", s:aqua, "", "")
+	call <SID>X("luaNumber", s:orange, "", "")
+	call <SID>X("luaConstant", s:yellow, "", "")
+
 	" Go Highlighting
 	call <SID>X("goStatement", s:purple, "", "")
 	call <SID>X("goConditional", s:purple, "", "")
