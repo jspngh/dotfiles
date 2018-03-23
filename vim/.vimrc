@@ -10,6 +10,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " " File explorer
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 " " Git
 Plugin 'fugitive.vim'
 Plugin 'airblade/vim-gitgutter'
@@ -30,11 +31,11 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'vim-scripts/TagHighlight'
 " " Tag listing
 Plugin 'majutsushi/tagbar'
-" " Autocompletion
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+"  " Autocompletion
+"  Plugin 'Valloric/YouCompleteMe'
+"  Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 " " Syntax error reporting
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 " " Close parenthesis, brackets, etc
 Plugin 'jiangmiao/auto-pairs'
 " " Snippets
@@ -54,8 +55,8 @@ Plugin 'rhysd/vim-crystal',               " Crystal
 Plugin 'neovimhaskell/haskell-vim',       {'for': 'haskell'}
 Plugin 'eagletmt/neco-ghc',               {'for': 'haskell'}
 Plugin 'jakub-olczyk/cpp.vim',            " Qt
-Plugin 'davidhalter/jedi-vim',            " Python
-" Plugin 'WolfgangMehner/lua-support',      " Lua
+Plugin 'nvie/vim-flake8',                 " Python
+" Plugin 'WolfgangMehner/lua-support',    " Lua
 Plugin 'lervag/vimtex',                   " Latex
 " " }}}
 
@@ -97,7 +98,7 @@ endif
 " Plugin settings {{{
 
 " NERDTree
-nnoremap <leader>, :NERDTreeToggle<esc>
+nnoremap <leader>, :NERDTreeTabsToggle<esc>
 let NERDTreeIgnore = ['\.pyc$', '\.hi', '\.o', '\.pdf', '\.taghl', '.ycm_extra_conf.py']
 let NERDTreeShowHidden=1
 
@@ -120,13 +121,18 @@ let g:airline_theme = 'lucius'
 " Syntastic
 nnoremap <F4> :SyntasticToggleMode<CR>
 let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
+let g:syntastic_check_on_open=0
+let g:syntastic_check_on_wq=0
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_compiler_options = '-std=c++11'
 let g:syntastic_error_symbol = ">>"
-" let g:syntastic_python_checkers=['flake8']
-" let g:syntastic_python_python_exec = '/usr/bin/python2'
-let g:syntastic_python_flake8_args='--ignore=E501,F401'
+let g:syntastic_python_checkers=['flake8', 'pylint']
+let g:syntastic_python_python_exec = '/usr/bin/python3'
+" let g:syntastic_python_flake8_args='--ignore=E501,F401'
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "active_filetypes": ["c", "cpp", "rust"],
+    \ "passive_filetypes": ["python"] }
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-j>"
@@ -157,10 +163,10 @@ nnoremap  <leader>ff :call cscope#find('f', expand('<cword>'))<CR>
 " i: Find files #including this file
 nnoremap  <leader>fi :call cscope#find('i', expand('<cword>'))<CR>
 
-" YouCompleteMe
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-nnoremap <silent> <leader>g :YcmCompleter GoTo<CR>
-nnoremap <silent> <leader>f :YcmCompleter FixIt<CR>
+" " YouCompleteMe
+" nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+" nnoremap <silent> <leader>g :YcmCompleter GoTo<CR>
+" nnoremap <silent> <leader>f :YcmCompleter FixIt<CR>
 nnoremap <silent> <leader>d :YcmCompleter GetDoc<CR>
 " Go back to previous location with <leader>b
 nnoremap <leader>b <C-o>
@@ -235,7 +241,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set list
-set listchars=tab:\ \ ,trail:·
+set listchars=tab:··,trail:· "display tabs and trailing whitespace
 
 function! s:setupWrapping()
   setlocal wrap
@@ -258,6 +264,7 @@ set incsearch
 set ignorecase
 set smartcase
 set showmatch
+set relativenumber
 
 " Easier to type, and I never use the default behavior. <3 sjl
 noremap H ^
@@ -426,6 +433,19 @@ augroup ft_qt
   au BufRead *.qml set ft=javascript
   au BufRead *.qrc set ft=xml
   au BufRead *.qss set ft=css
+augroup END
+" }}}
+" Java {{{
+augroup ft_java
+  au!
+  au FileType java set tabstop=4
+  au FileType java set softtabstop=4
+  au FileType java set shiftwidth=4
+  au FileType java set textwidth=79
+  au FileType java set expandtab
+  au FileType java set autoindent
+  au FileType java set fileformat=unix
+  au FileType java set fdm=syntax
 augroup END
 " }}}
 " }}}
