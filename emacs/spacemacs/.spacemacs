@@ -48,9 +48,7 @@ values."
      yaml
      html
 
-     ;; javascript
      rust
-     python
      ruby
      python
      c-c++
@@ -137,15 +135,16 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai
+   dotspacemacs-themes '(sanityinc-tomorrow-night
+                         monokai
                          spacemacs-dark
                          spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Roboto Mono"
-                               :size 17
+   dotspacemacs-default-font '("Fira Mono"
+                               :size 18
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -239,7 +238,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -325,7 +324,16 @@ you should place your code here."
   (setq mouse-wheel-scroll-amount '(4 ((shift) . 1))) ;; two lines at a time
   (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
   (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+  ;;; remove fringe background
+  (set-face-attribute 'fringe nil :background nil)
+  ;;; use python3
+  (with-eval-after-load 'python
+    (add-hook 'python-mode-hook (lambda () (setq python-shell-interpreter "python3"))))
   )
+  ;;; Bind clang-format-buffer to tab on the c++-mode only:
+  (add-hook 'c++-mode-hook 'clang-format-bindings)
+    (defun clang-format-bindings ()
+      (spacemacs/set-leader-keys-for-major-mode 'c++-mode "f" 'clang-format-buffer))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
