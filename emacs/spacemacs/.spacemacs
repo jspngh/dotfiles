@@ -329,11 +329,18 @@ you should place your code here."
   ;;; use python3
   (with-eval-after-load 'python
     (add-hook 'python-mode-hook (lambda () (setq python-shell-interpreter "python3"))))
-  )
   ;;; Bind clang-format-buffer to tab on the c++-mode only:
   (add-hook 'c++-mode-hook 'clang-format-bindings)
     (defun clang-format-bindings ()
       (spacemacs/set-leader-keys-for-major-mode 'c++-mode "f" 'clang-format-buffer))
+  ;;; Use c++17
+  (add-hook 'c++-mode-hook (lambda () (
+    setq flycheck-gcc-language-standard "c++17")))
+  (add-hook 'c++-mode-hook (lambda () (
+    setq flycheck-clang-language-standard "c++17")))
+  ;;; use golden-ratio
+  (golden-ratio-mode 1)
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
