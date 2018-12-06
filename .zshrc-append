@@ -1,0 +1,13 @@
+eval $(keychain --eval --quiet id_rsa)
+
+export LANG=en_US.UTF-8
+
+alias commit="git commit -v"
+alias status="git status"
+alias diff="git diff"
+
+alias la="exa --long --header"
+alias df="df -h"
+
+export PATH="$PATH:/home/jonas/.local/bin"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
