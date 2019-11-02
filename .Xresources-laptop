@@ -16,7 +16,7 @@ URxvt*geometry: 100x32
 !URxvt*font: xft:Fira\ Mono\ for\ Powerline:size=12:antialias=true:hinting=true
 !URxvt*font: xft:Roboto\ Mono\ for\ Powerline:size=13:antialias=true:hinting=true
 URxvt*font: xft:Hack:size=13:antialias=true:hinting=true
-
+!URxvt*font: xft:Font Awesome 5 Free:size=13:antialias=true:hinting=true
 ! cursor
 Xcursor.size: 48
 Xcursor.theme: Breeze
@@ -180,3 +180,17 @@ URxvt.color15: #ebdbb2
 ! white
 !*.color7:       #8f8f8f
 !*.color15:      #aaaaaa
+
+
+! -----------------------------------------------------------------------------
+! XTerm settings
+! -----------------------------------------------------------------------------
+XTerm.termName: xterm-256color
+XTerm.vt100.locale: true
+XTerm.vt100.metaSendsEscape: true
+XTerm.vt100.saveLines: 4096
+XTerm.vt100.scrollBar: true
+XTerm.vt100.scrollbar.width: 8
+
+XTerm.vt100.faceName: xft:Hack:size=13:antialias=true:hinting=true
+

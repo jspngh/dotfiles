@@ -1,8 +1,9 @@
 #! /bin/sh
 
 sxhkd &
+xsetroot -cursor_name left_ptr
 
-bspc config top_padding         58
+bspc config top_padding         62
 # bspc config border_width        2
 # bspc config window_gap          8
 
@@ -20,7 +21,9 @@ bspc rule -a Gimp floating=on follow=on
 bspc rule -a mplayer2 floating=on
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+bspc rule -a Emacs floating=off state=tiled
 
-feh --bg-fill ~/pictures/Wallpapers/mountain_wallpaper_3.jpg &
+
+feh --bg-fill ~/pictures/Wallpapers/minimal_landscape.jpg &
 redshift &
-~/.config/bspwm/bar/panel &
+polybar top &

@@ -6,7 +6,6 @@ alias commit="git commit -v"
 alias status="git status"
 alias diff="git diff"
 
-alias la="exa --long --header"
 alias df="df -h"
 
 export PATH="$PATH:/home/jonas/.local/bin"
