@@ -11,14 +11,20 @@ set $right l
 set $term alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu rofi -show run | xargs swaymsg exec
+set $menu wofi | xargs swaymsg exec
 
 ### Output configuration
 #
 output DP-1 {
-  background /home/nemphis/pictures/wallpapers/Brigth-eagle.jpg fill
+  background /home/nemphis/pictures/wallpapers/forest_seasons.png fill
   resolution 2560x1440
   position 0,0
+}
+#output HDMI-A-1 disable
+output HDMI-A-1 {
+  background /home/nemphis/pictures/wallpapers/Brigth-eagle.jpg fill
+  resolution 3840x2160
+  position 2560,0
 }
 #
 # Example configuration:
@@ -197,35 +203,53 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position bottom
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-
-    font Fira Mono 14
-
-    colors {
-        statusline #efefef
-        background #323232
-        inactive_workspace #232323ff #43434355 #5c5c5c
-    }
-}
-
 # bar {
-#   status_command i3status
+#     position bottom
+#
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+#
+#     font Fira Mono 14
+#
+#     colors {
+#         statusline #efefef
+#         background #323232
+#         inactive_workspace #232323ff #43434355 #5c5c5c
+#     }
 # }
+
+bar {
+  swaybar_command waybar
+}
 
 #
 # Custom configuration
 #
-client.focused #738432 #338472 #ffffff #565656 #738432
-client.unfocused #3e3e1e #333472 #ddeeaa #464646 #3e3e1e
+
+# class                 border  bground text    indicator child_border
+client.focused          #DB9F56 #DB9F56 #FFFFFF #DB9F56   #DB9F56
+client.focused_inactive #45321b #45321b #8f8f8f #484E50   #45321b
+client.unfocused        #141021 #141021 #8a7f8f #292D2E   #222222
+client.urgent           #F4D35E #F4D35E #000000 #900000   #900000
+client.placeholder      #2E4057 #2E4057 #FFFFFF #000000   #0C0C0C
 
 default_border pixel 3
-gaps outer 5
-gaps inner 5
+gaps outer 0
+gaps inner 0
 
 # show client side decorations
 bindsym $mod+Shift+g border csd
+
+# autostart applications
+exec redshift
+
+# set the correct gtk-theme
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Arc-Darker-Grey'
+    gsettings set $gnome-schema icon-theme 'qogir'
+    gsettings set $gnome-schema cursor-theme 'Breeze_Amber'
+}
+

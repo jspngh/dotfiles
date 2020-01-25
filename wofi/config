@@ -1,0 +1,9 @@
+x=800
+y=10
+width=960
+height=600
+mode=drun
+colors=colors
+filter_rate=100
+allow_images=true
+prompt=Command and Conquer

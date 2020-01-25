@@ -55,8 +55,8 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    # family: Droid Sans Mono for Powerline # should be "Menlo" or something on macOS.
-    family: Meslo LG M DZ for Powerline # should be "Menlo" or something on macOS.
+    family: Droid Sans Mono for Powerline
+    #family: Meslo LG M DZ for Powerline
     # Style can be specified to pick a specific face.
     style: Regular
 
@@ -73,7 +73,7 @@ font:
     # style: Italic
 
   # Point size of the font
-  size: 14.0
+  size: 16.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -94,52 +94,26 @@ font:
   use_thin_strokes: true
 
 # Should display the render timer
-render_timer: false
+debug:
+  render_timer: false
 
-# Colors (Tomorrow Night Bright)
+# Colors (Doom One)
 colors:
   # Default colors
   primary:
-    background: '0x000000'
-    foreground: '0xeaeaea'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x000000'
-    cursor: '0xffffff'
+    background: '0x282c34'
+    foreground: '0xbbc2cf'
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xd54e53'
-    green:   '0xb9ca4a'
-    yellow:  '0xe6c547'
-    blue:    '0x7aa6da'
-    magenta: '0xc397d8'
-    cyan:    '0x70c0ba'
-    white:   '0xffffff'
-
-  # Bright colors
-  bright:
-    black:   '0x666666'
-    red:     '0xff3334'
-    green:   '0x9ec400'
-    yellow:  '0xe7c547'
-    blue:    '0x7aa6da'
-    magenta: '0xb77ee0'
-    cyan:    '0x54ced6'
-    white:   '0xffffff'
-
-  # Dim colors (Optional)
-  dim:
-    black:   '0x333333'
-    red:     '0xf2777a'
-    green:   '0x99cc99'
-    yellow:  '0xffcc66'
-    blue:    '0x6699cc'
-    magenta: '0xcc99cc'
-    cyan:    '0x66cccc'
-    white:   '0xdddddd'
+    black:   '0x282c34'
+    red:     '0xff6c6b'
+    green:   '0x98be65'
+    yellow:  '0xecbe7b'
+    blue:    '0x51afef'
+    magenta: '0xc678dd'
+    cyan:    '0x46d9ff'
+    white:   '0xbbc2cf'
 
 # Visual Bell
 #
