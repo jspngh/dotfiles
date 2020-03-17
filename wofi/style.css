@@ -37,11 +37,14 @@ window {
   margin: 5px 15px;
   border: 0px;
   color: #fefefe;
-  background-color: #2e2e2e;
 }
 
 .entry {
   margin: 5px 16px;
+}
+
+#entry:selected {
+  background-color: #5e5e5e;
 }
 
 expander .entry {
