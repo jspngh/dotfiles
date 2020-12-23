@@ -16,7 +16,7 @@ set $menu wofi | xargs swaymsg exec
 ### Output configuration
 #
 output DP-1 {
-  background /home/nemphis/pictures/wallpapers/valley_uw.png fill
+  background /home/nemphis/pictures/wallpapers/solar_system_uw.png fill
   resolution 3440x1440
   position 0,0
 }
@@ -24,7 +24,7 @@ output HDMI-A-1 disable
 #output HDMI-A-1 {
 #  background /home/nemphis/pictures/wallpapers/Brigth-eagle.jpg fill
 #  resolution 3840x2160
-#  position 2560,0
+#  position 3440,0
 #}
 #
 # Example configuration:
@@ -34,13 +34,13 @@ output HDMI-A-1 disable
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
-exec swayidle -w  timeout 30 'swaylock -f -i $HOME/pictures/wallpapers/valley_uw.png -s fill' \
-                  timeout 60 'swaymsg "output * dpms off"' \
-                      resume 'swaymsg "output * dpms on"' \
-                before-sleep 'swaylock -f -i $HOME/pictures/wallpapers/valley_uw.png -s fill'
+exec swayidle -w  timeout 300 'swaylock -f -i $HOME/pictures/wallpapers/high-tech.jpg -s fill' \
+                  timeout 600 'swaymsg "output * dpms off"' \
+                      resume  'swaymsg "output * dpms on"' \
+                before-sleep  'swaylock -f -i $HOME/pictures/wallpapers/high-tech.jpg -s fill'
 #
-# This will lock your screen after 30 seconds of inactivity, then turn off
-# your displays after another 30 seconds, and turn your screens back on when
+# This will lock your screen after 180 seconds of inactivity, then turn off
+# your displays after another 60 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
@@ -81,7 +81,7 @@ exec swayidle -w  timeout 30 'swaylock -f -i $HOME/pictures/wallpapers/valley_uw
     bindsym $mod+Shift+c reload
 
     # exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+t exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -110,11 +110,11 @@ exec swayidle -w  timeout 30 'swaylock -f -i $HOME/pictures/wallpapers/valley_uw
 # Workspaces:
 #
     # switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
+    bindsym $mod+q workspace 1
+    bindsym $mod+w workspace 2
+    bindsym $mod+e workspace 3
+    bindsym $mod+r workspace 4
+    bindsym $mod+t workspace 5
     bindsym $mod+6 workspace 6
     bindsym $mod+7 workspace 7
     bindsym $mod+8 workspace 8
@@ -143,9 +143,9 @@ exec swayidle -w  timeout 30 'swaylock -f -i $HOME/pictures/wallpapers/valley_uw
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym $mod+Shift+s layout stacking
+    bindsym $mod+Shift+w layout tabbed
+    bindsym $mod+Shift+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -193,7 +193,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+Shift+r mode "resize"
 
 #
 # Status Bar:
@@ -222,9 +222,8 @@ bar {
 #
 # Custom configuration
 #
-
 # class                 border  bground text    indicator child_border
-client.focused          #DB9F56 #DB9F56 #FFFFFF #DB9F56   #DB9F56
+client.focused          #A07299 #A07299 #FFFFFF #A07299   #A07299
 client.focused_inactive #45321b #45321b #8f8f8f #484E50   #45321b
 client.unfocused        #141021 #141021 #8a7f8f #292D2E   #222222
 client.urgent           #F4D35E #F4D35E #000000 #900000   #900000
@@ -238,7 +237,7 @@ gaps inner 0
 bindsym $mod+Shift+g border csd
 
 # autostart applications
-exec redshift
+exec gammastep
 
 # set the correct gtk-theme
 set $gnome-schema org.gnome.desktop.interface
