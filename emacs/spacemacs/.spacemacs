@@ -47,12 +47,18 @@ This function should only modify configuration layer settings."
      syntax-checking
      treemacs
      version-control
+     shell
      git
      (lsp :variables
         lsp-rust-server 'rust-analyzer)
 
      (rust :variables
         rust-backend 'lsp)
+     (c-c++ :variables
+        c-c++-backend 'lsp-clangd)
+     (cmake :variables
+        cmake-backend 'lsp
+        cmake-enable-cmake-ide-support t)
      haskell
      python
      emacs-lisp
@@ -198,13 +204,15 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(ujelly
-                         doom-spacegrey
-                         doom-palenight
-                         gruvbox-dark-hard
-                         spacemacs-dark
-                         spacemacs-light
-                         flatui)
+   dotspacemacs-themes '(
+                          flatui
+                          spacemacs-light
+                          ujelly
+                          doom-spacegrey
+                          doom-palenight
+                          gruvbox-dark-hard
+                          spacemacs-dark
+                        )
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
