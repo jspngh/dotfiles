@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Niflheim</name>
+    <name>google-flat</name>
     <titleLayout>LIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -402,7 +402,7 @@
     </keybind>
     <keybind key="W-Return">
       <action name="Execute">
-        <command>urxvtc</command>
+        <command>/home/nemphis/projects/alacritty/target/release/alacritty</command>
       </action>
     </keybind>
     <keybind key="C-A-X">

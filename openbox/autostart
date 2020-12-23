@@ -9,7 +9,7 @@ compton &
 # Mouse sensitivity
 xset m 1 2
 # Background
-feh --bg-fill ~/pictures/wallpapers/no_mans_sky.png &
+feh --bg-fill ~/pictures/wallpapers/poly-lakeside.jpg &
 # Plank menu
 plank &
 # Better color temperature at night

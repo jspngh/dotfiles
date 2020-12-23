@@ -22,7 +22,6 @@ lyrics_directory = ~/.ncmpcpp/lyrics
 mpd_host = localhost
 #
 mpd_port = 6600
-#
 #mpd_connection_timeout = 5
 #
 ## Needed for tag editor and file operations to work.
@@ -87,7 +86,7 @@ visualizer_sync_interval = "30"
 #
 ## Available values: spectrum, wave, wave_filled, ellipse.
 ##
-visualizer_type = "wave"
+visualizer_type = "spectrum"
 #
 visualizer_look = "+|"
 #
@@ -187,12 +186,12 @@ display_volume_level                  = "yes"
 state_line_color                      = "cyan"
 state_flags_color                     = "magenta"
 main_window_color                     = "green"
-main_window_highlight_color           = "blue"
+# main_window_highlight_color           = "blue"
 color1                                = "white"
 color2                                = "blue"
 progressbar_color                     = "black"
 statusbar_color                       = "cyan"
-active_column_color                   = "red"
+# active_column_color                   = "red"
 window_border_color                   = "red"
 active_window_border                  = "red"
 follow_now_playing_lyrics             = "yes"

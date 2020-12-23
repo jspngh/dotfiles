@@ -1,5 +1,7 @@
 Xcursor.theme: /usr/share/icons/Breeze-Amber-Cursor
 
+emacs.font: DejaVu Sans Mono-12
+
 ! clean up urxvt, add keybinds
 URxvt.intensityStyles: false
 URxvt.scrollBar: false
@@ -9,14 +11,14 @@ URxvt.resize-font.smaller: C-Down
 URxvt.resize-font.bigger: C-Up
 URxvt.iso14755: false
 URxvt.iso14755_52: false
-URxvt.geometry: 125x35
+URxvt.geometry: 105x40
 
 ! icon file
 URxvt*iconFile: /usr/share/icons/Paper/scalable/apps/utilities-terminal-symbolic.svg
 ! font
 !URxvt*font: xft:Source\ Code\ Pro\ for\ Powerline:size=12:antialias=true:hinting=true
 !URxvt*font: xft:Fira\ Mono\ for\ Powerline:size=12:antialias=true:hinting=true
-URxvt*font: xft:Droid\ Sans\ Mono\ for\ Powerline:size=12:antialias=true:hinting=true
+URxvt*font: xft:Droid\ Sans\ Mono\ for\ Powerline:size=13:antialias=true:hinting=true
 
 ! terminal padding
 URxvt.internalBorder: 20
@@ -33,7 +35,6 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 Xft.dpi: 96
-
 
 
 ! clickable links, clipboard support, mouse wheel support, and on the fly font resizing
