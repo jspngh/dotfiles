@@ -2,6 +2,13 @@
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
+(setq lsp-clients-clangd-args '("-j=3"
+				"--compile-commands-dir=build"
+                                "--background-index"
+                                "--clang-tidy"
+                                "--completion-style=detailed"
+                                "--header-insertion=never"))
+(after! lsp-clangd (set-lsp-priority! 'clangd 2))
 
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
