@@ -41,7 +41,6 @@ This function should only modify configuration layer settings."
      themes-megapack
      auto-completion
      helm
-     markdown
      multiple-cursors
      org
      syntax-checking
@@ -50,7 +49,9 @@ This function should only modify configuration layer settings."
      shell
      git
      (lsp :variables
-        lsp-rust-server 'rust-analyzer)
+        lsp-rust-server 'rust-analyzer
+        lsp-lens-enable t
+        lsp-headerline-breadcrumb-enable nil)
 
      (rust :variables
         rust-backend 'lsp)
@@ -62,7 +63,7 @@ This function should only modify configuration layer settings."
      haskell
      python
      emacs-lisp
-     markdown
+     ;markdown
      yaml
      html
      )
@@ -206,10 +207,10 @@ It should only modify the values of Spacemacs settings."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
                           flatui
-                          spacemacs-light
-                          ujelly
                           doom-spacegrey
                           doom-palenight
+                          spacemacs-light
+                          ujelly
                           gruvbox-dark-hard
                           spacemacs-dark
                         )
@@ -228,8 +229,8 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts.
-   dotspacemacs-default-font '("Iosevka"
-                               :size 22
+   dotspacemacs-default-font '("Iosevka Custom"
+                               :size 21
                                :weight normal
                                :width normal)
 
@@ -495,7 +496,16 @@ before packages are loaded."
   (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
   ;;; remove fringe background
   (set-face-attribute 'fringe nil :background nil)
-  )
+  ;;; lsp clangd args
+  (setq lsp-clients-clangd-args '(
+    "-j=3"
+    "--compile-commands-dir=build"
+    "--background-index"
+    "--clang-tidy"
+    "--completion-style=detailed"
+    "--header-insertion=never"
+  ))
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
