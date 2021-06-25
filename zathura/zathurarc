@@ -1,0 +1,18 @@
+# Colors
+set default-bg white
+set statusbar-bg lightgrey
+set statusbar-fg black
+set inputbar-bg lightgrey
+set inputbar-fg black
+
+# Font
+set font "Hack 12"
+
+# Size
+set window-height 1200
+set window-width 1800
+set adjust-open width
+
+# Scrolling
+set show-scrollbars true
+set scroll-step 200
