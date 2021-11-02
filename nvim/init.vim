@@ -19,8 +19,10 @@ Plug 'justinmk/vim-sneak'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
+Plug 'mhinz/vim-signify'
 " GUI colors
 Plug 'chriskempson/base16-vim'
+Plug 'ayu-theme/ayu-vim'
 " IDE functionality
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
@@ -62,13 +64,15 @@ if (match($TERM, "-256color") != -1) && (match($TERM, "screen-256color") == -1)
   set termguicolors
 endif
 set background=dark
-colorscheme base16-gruvbox-dark-hard
+let ayucolor="dark"
+colorscheme ayu
 syntax on
 hi Normal ctermbg=NONE
 
 " Tree configuration
+let g:nvim_tree_gitignore = 1 "0 by default
 lua << END
-  require'nvim-tree'.setup {
+  require('nvim-tree').setup {
     -- disables netrw completely
     disable_netrw       = true,
     -- hijack netrw window on startup
@@ -139,15 +143,13 @@ lua << END
   }
 END
 
-let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
-let g:nvim_tree_gitignore = 1 "0 by default
 nnoremap <leader>, :NvimTreeToggle<CR>
 
 " Project configuration
 lua << END
   require("project_nvim").setup {
     detection_methods = { "pattern", "lsp" },
-    patterns = { "build", ".vscode", ".gdbinit" }
+    patterns = { ".git", "build", ".gdbinit" }
   }
   require('telescope').load_extension('projects')
 END
@@ -155,7 +157,7 @@ END
 " Telescope hotkeys
 nmap <C-p> :Telescope projects<CR>
 nmap <C-d> :Telescope find_files<CR>
-nmap <leader>b :Telescope buffers<CR>
+nmap <leader>bb :Telescope buffers<CR>
 
 " Completion
 set completeopt=menu,menuone,noselect
@@ -210,7 +212,7 @@ lua << END
     buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
     buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
     buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', '<space>cr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
@@ -231,7 +233,6 @@ lua << END
       "clangd",
       "-j=3",
       "--compile-commands-dir=build",
-      "--query-driver=/opt/gcc-arm-none-eabi-9-2019-q4-major/bin/arm-none-eabi-gcc",
       "--background-index",
       "--clang-tidy",
       "--completion-style=detailed",
@@ -278,7 +279,7 @@ let g:secure_modelines_allowed_items = [
 lua << END
   require('lualine').setup {
     options = {
-      theme = 'gruvbox',
+      theme = 'ayu',
       component_separators = { left = '', right = ''},
       section_separators = { left = '', right = ''},
     },
@@ -303,19 +304,8 @@ if executable('rg')
 	set grepformat=%f:%l:%c:%m
 endif
 
-" Javascript
-let javaScript_fold=0
-
-" Java
-let java_ignore_javadoc=1
-
-" Latex
-let g:latex_indent_enabled = 1
-let g:latex_fold_envs = 0
-let g:latex_fold_sections = []
-
 " Quick-save
-nmap <leader>w :w<CR>
+nmap <leader>bw :w<CR>
 
 " Don't confirm .lvimrc
 let g:localvimrc_ask = 0
@@ -361,7 +351,7 @@ set splitright
 set splitbelow
 
 " Permanent undo
-set undodir=~/.vimdid
+set undodir=~/.cache/nvim
 set undofile
 
 " Decent wildmenu
@@ -404,7 +394,7 @@ cnoremap %s/ %sm/
 " # GUI settings
 " =============================================================================
 set guioptions-=T " Remove toolbar
-set guifont=SF\ Mono:h18
+set guifont=JetBrainsMono\ Nerd\ Font:h18
 set vb t_vb= " No more beeps
 set backspace=2 " Backspace over newlines
 set nofoldenable
@@ -471,29 +461,6 @@ map L $
 " ,c will copy entire buffer into clipboard
 noremap <leader>p :read !xsel --clipboard --output<cr>
 noremap <leader>c :w !xsel -ib<cr><cr>
-
-" <leader>s for Rg search
-noremap <leader>s :Rg
-let g:fzf_layout = { 'down': '~20%' }
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-
-function! s:list_cmd()
-  let base = fnamemodify(expand('%'), ':h:.:S')
-  return base == '.' ? 'fdfind --type file --follow' : printf('fdfind --type file --follow | proximity-sort %s', shellescape(expand('%')))
-endfunction
-
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, {'source': s:list_cmd(),
-  \                               'options': '--tiebreak=index'}, <bang>0)
-
-
-" Open new file adjacent to current file
-nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " No arrow keys --- force yourself to use the home row
 nnoremap <up> <nop>
