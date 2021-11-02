@@ -1,9 +1,15 @@
 # Colors
-set default-bg white
+set default-bg "#2E2E2E"
 set statusbar-bg lightgrey
 set statusbar-fg black
 set inputbar-bg lightgrey
 set inputbar-fg black
+
+set recolor "true"
+set recolor-lightcolor "#2E2E2E"
+set recolor-darkcolor "#FFFFFF"
+set recolor-reverse-video "true"
+set recolor-keephue "true"
 
 # Font
 set font "Hack 12"
