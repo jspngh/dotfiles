@@ -261,6 +261,17 @@ lua << END
   )
 END
 
+" Treesitter configuration
+lua <<EOF
+require('nvim-treesitter.configs').setup {
+  sync_install = false,
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
 " Plugin settings
 let g:secure_modelines_allowed_items = [
                 \ "textwidth",   "tw",
