@@ -28,7 +28,7 @@ Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'ahmedkhalf/project.nvim', {'branch': 'main'}
+Plug 'nvim-telescope/telescope-project.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 " Semantic language support
 Plug 'neovim/nvim-lspconfig'
@@ -147,15 +147,11 @@ nnoremap <leader>, :NvimTreeToggle<CR>
 
 " Project configuration
 lua << END
-  require("project_nvim").setup {
-    detection_methods = { "pattern", "lsp" },
-    patterns = { ".git", "build", ".gdbinit" }
-  }
-  require('telescope').load_extension('projects')
+  require('telescope').load_extension('project')
 END
 
 " Telescope hotkeys
-nmap <C-p> :Telescope projects<CR>
+nmap <C-p> :Telescope project<CR>
 nmap <C-d> :Telescope find_files<CR>
 nmap <leader>bb :Telescope buffers<CR>
 
@@ -249,6 +245,13 @@ lua << END
     capabilities = capabilities,
     flags = {
       debounce_text_changes = 150,
+    },
+    settings = {
+      ["rust-analyzer"] = {
+        checkOnSave = {
+          allTargets = false
+        }
+      }
     }
   }
 
