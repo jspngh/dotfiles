@@ -26,6 +26,7 @@ Plug 'ayu-theme/ayu-vim'
 " IDE functionality
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'romgrk/barbar.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-project.nvim'
@@ -119,7 +120,7 @@ lua << END
   }
 END
 
-nnoremap <leader>, :NvimTreeToggle<CR>
+nnoremap <leader>, :NvimTreeFindFileToggle<CR>
 
 " Project configuration
 lua << END
