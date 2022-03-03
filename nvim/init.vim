@@ -20,6 +20,7 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'andymass/vim-matchup'
 Plug 'mhinz/vim-signify'
+Plug 'ntpeters/vim-better-whitespace'
 " GUI colors
 Plug 'chriskempson/base16-vim'
 Plug 'ayu-theme/ayu-vim'
@@ -76,7 +77,7 @@ lua << END
     disable_netrw       = true,
     hijack_netrw        = true,
     open_on_setup       = false,
-    auto_close          = true,
+    auto_close          = false,
     open_on_tab         = false,
     update_to_buf_dir   = {
       enable = true,
@@ -131,6 +132,7 @@ END
 nmap <C-p> :Telescope project<CR>
 nmap <C-d> :Telescope find_files<CR>
 nmap <leader>bb :Telescope buffers<CR>
+nmap <leader>bd :BufferClose<CR>
 
 " Completion
 set completeopt=menu,menuone,noselect
