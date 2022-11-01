@@ -24,6 +24,8 @@ Plug 'ntpeters/vim-better-whitespace'
 " GUI colors
 Plug 'chriskempson/base16-vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'EdenEast/nightfox.nvim'
+Plug 'rebelot/kanagawa.nvim'
 " IDE functionality
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
@@ -66,8 +68,7 @@ if (match($TERM, "-256color") != -1) && (match($TERM, "screen-256color") == -1)
   set termguicolors
 endif
 set background=dark
-let ayucolor="dark"
-colorscheme ayu
+colorscheme kanagawa
 syntax on
 hi Normal ctermbg=NONE
 
@@ -77,12 +78,7 @@ lua << END
     disable_netrw       = true,
     hijack_netrw        = true,
     open_on_setup       = false,
-    auto_close          = false,
     open_on_tab         = false,
-    update_to_buf_dir   = {
-      enable = true,
-      auto_open = true,
-    },
     hijack_cursor       = false,
     update_cwd          = true,
     diagnostics = {
@@ -110,9 +106,7 @@ lua << END
     },
     view = {
       width = 30,
-      height = 30,
       side = 'left',
-      auto_resize = false,
       mappings = {
         custom_only = false,
         list = {}
@@ -192,10 +186,10 @@ lua << END
     buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
     buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-    buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.format(async = true)<CR>', opts)
   end
 
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
   nvim_lsp["clangd"].setup {
     on_attach = on_attach,
@@ -274,7 +268,7 @@ let g:secure_modelines_allowed_items = [
 lua << END
   require('lualine').setup {
     options = {
-      theme = 'ayu',
+      theme = 'horizon',
       component_separators = { left = '', right = ''},
       section_separators = { left = '', right = ''},
     },
@@ -389,7 +383,7 @@ cnoremap %s/ %sm/
 " # GUI settings
 " =============================================================================
 set guioptions-=T " Remove toolbar
-set guifont=JetBrainsMono\ Nerd\ Font:h18
+set guifont=Dank\ Mono:h16
 set vb t_vb= " No more beeps
 set backspace=2 " Backspace over newlines
 set nofoldenable
