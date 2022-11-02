@@ -1,6 +1,6 @@
 augroup filetypedetect
   " Folding
-  autocmd Filetype c setlocal foldmethod=syntax
+  autocmd Filetype c setlocal syntax=on
   " Mail
   autocmd BufRead,BufNewFile /tmp/mutt*              setfiletype mail
   autocmd Filetype mail                              setlocal spell tw=72 colorcolumn=73

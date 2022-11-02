@@ -26,6 +26,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'ayu-theme/ayu-vim'
 Plug 'EdenEast/nightfox.nvim'
 Plug 'rebelot/kanagawa.nvim'
+Plug 'sainnhe/sonokai'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 " IDE functionality
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
@@ -46,9 +48,6 @@ Plug 'cespare/vim-toml', {'branch': 'main'}
 Plug 'stephpy/vim-yaml'
 Plug 'rust-lang/rust.vim'
 Plug 'rhysd/vim-clang-format'
-"Plug 'fatih/vim-go'
-Plug 'dag/vim-fish'
-Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
 call plug#end()
@@ -226,6 +225,14 @@ lua << END
     }
   }
 
+  nvim_lsp["pyright"].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
       virtual_text = true,
@@ -386,7 +393,9 @@ set guioptions-=T " Remove toolbar
 set guifont=Dank\ Mono:h16
 set vb t_vb= " No more beeps
 set backspace=2 " Backspace over newlines
-set nofoldenable
+set foldmethod=expr
+set foldlevel=5
+set foldexpr=nvim_treesitter#foldexpr()
 set ttyfast
 " https://github.com/vim/vim/issues/1735#issuecomment-383353563
 set lazyredraw
@@ -514,14 +523,9 @@ autocmd BufRead *.plot set filetype=gnuplot
 autocmd BufRead *.md set filetype=markdown
 autocmd BufRead *.lds set filetype=ld
 autocmd BufRead *.tex set filetype=tex
-autocmd BufRead *.trm set filetype=c
+autocmd BufRead *h,*.trm set filetype=c
 autocmd BufRead *.xlsx.axlsx set filetype=ruby
 
 " =============================================================================
 " # Footer
 " =============================================================================
-
-" nvim
-if has('nvim')
-	runtime! plugin/python_setup.vim
-endif
