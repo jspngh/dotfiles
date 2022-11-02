@@ -145,6 +145,13 @@ lua <<EOF
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.close(),
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ['<Tab>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        else
+          fallback()
+        end
+      end, { 'i', 's' }),
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp', max_item_count = 8 },
@@ -232,6 +239,7 @@ lua << END
   nvim_lsp["pyright"].setup {
     on_attach = on_attach,
     capabilities = capabilities,
+    root_dir = nvim_lsp.util.find_git_ancestor,
     flags = {
       debounce_text_changes = 150,
     }
