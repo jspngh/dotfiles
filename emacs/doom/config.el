@@ -72,4 +72,6 @@
 (use-package centaur-tabs
   :bind
   ("<left>" . centaur-tabs-backward)
-  ("<right>" . centaur-tabs-forward))
+  ("<right>" . centaur-tabs-forward)
+  ("<C-left>" . centaur-tabs-move-current-tab-to-left)
+  ("<C-right>" . centaur-tabs-move-current-tab-to-right))
