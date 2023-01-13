@@ -33,7 +33,6 @@ return require('packer').startup(function(use)
   use('rebelot/kanagawa.nvim')
 
   -- IDE
-  -- TODO: git plugin
   use('nvim-treesitter/nvim-treesitter')
   use('nvim-treesitter/playground')
 
@@ -42,6 +41,8 @@ return require('packer').startup(function(use)
   use('hrsh7th/nvim-cmp')
   use('hrsh7th/cmp-buffer')
   use('hrsh7th/cmp-path')
+
+  use('lewis6991/gitsigns.nvim')
 
   -- GUI enhancements
   use('machakann/vim-highlightedyank')
