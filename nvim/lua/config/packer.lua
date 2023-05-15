@@ -26,11 +26,18 @@ return require('packer').startup(function(use)
   }
 
   -- Colors
-  use({
+  use('rebelot/kanagawa.nvim')
+  use('nyoom-engineering/oxocarbon.nvim')
+  use('navarasu/onedark.nvim')
+  use('marko-cerovac/material.nvim')
+  use {
       'rose-pine/neovim',
       as = 'rose-pine',
-  })
-  use('rebelot/kanagawa.nvim')
+  }
+  use {
+      'bluz71/vim-moonfly-colors',
+      as = 'moonfly'
+  }
 
   -- IDE
   use('nvim-treesitter/nvim-treesitter')
@@ -49,6 +56,9 @@ return require('packer').startup(function(use)
   -- GUI enhancements
   use('machakann/vim-highlightedyank')
   use('ntpeters/vim-better-whitespace')
-  use({'romgrk/barbar.nvim', wants = 'nvim-web-devicons'})
+  use {
+      'romgrk/barbar.nvim',
+      wants = 'nvim-web-devicons'
+  }
 
 end)
