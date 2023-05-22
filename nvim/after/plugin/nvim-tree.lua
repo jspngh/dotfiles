@@ -36,6 +36,14 @@ require('nvim-tree').setup({
 			list = {}
 		}
 	},
+	renderer = {
+		add_trailing = true,
+		icons = {
+			show = {
+				folder_arrow = false,
+			},
+		},
+	},
 })
 
 vim.keymap.set("n", "<leader>,", "<cmd>NvimTreeToggle<CR>zz")
