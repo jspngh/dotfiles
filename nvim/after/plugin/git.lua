@@ -13,5 +13,6 @@ gitsign.setup({
     -- Actions
     map('n', '<leader>hb', function() gs.blame_line{full=true} end)
     map('n', '<leader>hd', gs.diffthis)
+    map('n', '<leader>hR', gs.reset_hunk)
   end
 })
