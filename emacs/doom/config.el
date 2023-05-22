@@ -48,6 +48,8 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
+;; Set the initial window size
+(setq initial-frame-alist '((width . 143) (height . 55)))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -70,6 +72,9 @@
               ("<right>" . nil)
               ("<left>" . nil)))
 (use-package centaur-tabs
+  :init
+  (setq centaur-tabs-style 'slant)
+  (setq centaur-tabs-set-bar 'over)
   :bind
   ("<left>" . centaur-tabs-backward)
   ("<right>" . centaur-tabs-forward)
