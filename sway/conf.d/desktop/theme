@@ -1,0 +1,13 @@
+#
+# Custom configuration
+#
+# class                 border  bground text    indicator child_border
+client.focused          #A07299 #A07299 #FFFFFF #A07299   #A07299
+client.focused_inactive #45321b #45321b #8f8f8f #484E50   #45321b
+client.unfocused        #141021 #141021 #8a7f8f #292D2E   #222222
+client.urgent           #F4D35E #F4D35E #000000 #900000   #900000
+client.placeholder      #2E4057 #2E4057 #FFFFFF #000000   #0C0C0C
+
+default_border pixel 3
+gaps outer 0
+gaps inner 0

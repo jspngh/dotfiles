@@ -1,0 +1,16 @@
+# autostart applications
+exec gammastep
+exec /usr/libexec/pipewire-launcher
+
+# start dbus-daemon
+exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
+
+# set the correct gtk-theme
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema icon-theme 'Tela-green'
+    gsettings set $gnome-schema cursor-theme 'volantes'
+}
+
+seat seat0 xcursor_theme "volantes" 48

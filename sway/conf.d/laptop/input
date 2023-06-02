@@ -1,0 +1,7 @@
+### Input configuration
+input "1739:30381:DLL0665:01_06CB:76AD_Touchpad" {
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	middle_emulation enabled
+}
