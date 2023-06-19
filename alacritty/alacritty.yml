@@ -54,6 +54,17 @@ window:
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: true
 
+  # Background opacity
+  opacity: 1.0
+
+  # Decorations theme variant (Linux/BSD only)
+  #
+  # Override the variant of the GTK theme/Wayland client side decorations.
+  # Commonly supported values are `dark` and `light`. Set this to `None` to use
+  # the default theme variant.
+  decorations_theme_variant: None
+
+
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
 
@@ -80,23 +91,18 @@ draw_bold_text_with_bright_colors: true
 font:
   # The normal (roman) font face to use.
   normal:
-    family: SF Mono Powerline
-    #family: Droid Sans Mono for Powerline
-    #family: Meslo LG M DZ for Powerline
-    # Style can be specified to pick a specific face.
+    family: JetBrainsMono Nerd Font
     style: Regular
 
   # The bold font face
   bold:
-    family: monospace # should be "Menlo" or something on macOS.
-    # Style can be specified to pick a specific face.
-    # style: Bold
+    family: JetBrainsMono Nerd Font
+    style: Bold
 
   # The italic font face
   italic:
-    family: monospace # should be "Menlo" or something on macOS.
-    # Style can be specified to pick a specific face.
-    # style: Italic
+    family: JetBrainsMono Nerd Font
+    style: Italic
 
   # Point size of the font
   size: 16.0
@@ -114,77 +120,37 @@ font:
     x: 0
     y: 0
 
-  # OS X only: use thin stroke font rendering. Thin strokes are suitable
-  # for retina displays, but for non-retina you probably want this set to
-  # false.
-  use_thin_strokes: true
-
 # Should display the render timer
 debug:
   render_timer: false
 
-# Colors (Doom One)
 colors:
   # Default colors
   primary:
-    # background: '0x282c34'
-    background: '0x080c10'
-    foreground: '0xbbc2cf'
-
-  # Cursor colors
-  #
-  # Colors which should be used to draw the terminal cursor.
-  #
-  # Allowed values are CellForeground and CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
-  #cursor:
-  #  text: CellBackground
-  #  cursor: CellForeground
-
-  # Vi mode cursor colors
-  #
-  # Colors for the cursor when the vi mode is active.
-  #
-  # Allowed values are CellForeground and CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
-  vi_mode_cursor:
-    text: '0xff00ff'
-    cursor: '0x00ff00'
-
-  # Selection colors
-  #
-  # Colors which should be used to draw the selection area.
-  #
-  # Allowed values are CellForeground and CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
-  #selection:
-  #  text: CellBackground
-  #  background: CellForeground
-
-  # Search colors
-  #
-  # Colors used for the search bar and match highlighting.
-  #search:
-    # Allowed values are CellForeground and CellBackground, which reference the
-    # affected cell, or hexadecimal colors like #ff00ff.
-    #matches:
-    #  foreground: '#000000'
-    #  background: '#ffffff'
-
-  #bar:
-  #  background: '#c5c8c6'
-  #  foreground: '#1d1f21'
+    background: '0x1e2127'
+    foreground: '0xabb2bf'
 
   # Normal colors
   normal:
-    black:   '0x282c34'
-    red:     '0xff6c6b'
-    green:   '0x98be65'
-    yellow:  '0xecbe7b'
-    blue:    '0x51afef'
+    black:   '0x1e2127'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
     magenta: '0xc678dd'
-    cyan:    '0x46d9ff'
-    white:   '0xbbc2cf'
+    cyan:    '0x56b6c2'
+    white:   '0xabb2bf'
+
+  # Bright colors
+  bright:
+    black:   '0x5c6370'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xffffff'
 
 # Visual Bell
 #
@@ -211,9 +177,6 @@ colors:
 bell:
   animation: EaseOutExpo
   duration: 0
-
-# Background opacity
-background_opacity: 1.0
 
 # Mouse bindings
 #
