@@ -1,12 +1,6 @@
 ### Output configuration
 output DP-1 {
-  background /home/nemphis/pictures/wallpapers/unexplored.png fill
+  background $HOME/pictures/wallpapers/landscape_pink_hills.png fill
   resolution 3440x1440
   position 0,0
 }
-output HDMI-A-1 disable
-# output HDMI-A-1 {
-#   background /home/nemphis/pictures/wallpapers/Brigth-eagle.jpg fill
-#   resolution 3840x2160
-#   position 3440,0
-# }
