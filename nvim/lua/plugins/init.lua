@@ -23,6 +23,11 @@ return {
         "machakann/vim-highlightedyank"
     },
     {
-        "ntpeters/vim-better-whitespace"
+        "echasnovski/mini.trailspace",
+        version = '*',
+        config = function()
+            vim.api.nvim_set_hl(0, "MiniTrailspace", { bg="#853e1b" })
+            require('mini.trailspace').setup()
+        end,
     },
 }
