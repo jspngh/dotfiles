@@ -26,8 +26,11 @@ return {
         "echasnovski/mini.trailspace",
         version = '*',
         config = function()
-            vim.api.nvim_set_hl(0, "MiniTrailspace", { bg="#853e1b" })
-            require('mini.trailspace').setup()
+            local trailspace = require('mini.trailspace')
+            trailspace.setup()
+
+            vim.api.nvim_set_hl(0, "MiniTrailspace", { bg="#db8246" })
+            vim.keymap.set('n', '<leader>tr', trailspace.trim, {})
         end,
     },
 }
