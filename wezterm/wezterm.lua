@@ -34,4 +34,11 @@ config.window_frame = {
 
 config.hide_tab_bar_if_only_one_tab = true
 
+config.keys = {
+    {
+        key = 'F11',
+        action = wezterm.action.ToggleFullScreen,
+    },
+}
+
 return config
