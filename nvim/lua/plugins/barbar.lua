@@ -10,5 +10,5 @@ return {
         -- insert_at_start = true,
         -- …etc.
     },
-    version = "1.7.0",
+    version = "1.9.1",
 }
