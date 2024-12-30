@@ -1,13 +1,16 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
+config.enable_wayland = false
+config.front_end = "WebGpu"
+
 config.font_size = 18
 config.font = wezterm.font 'Berkeley Mono'
 
-config.initial_rows = 36
-config.initial_cols = 100
+config.initial_rows = 38
+config.initial_cols = 108
 
-config.color_scheme = 'MaterialDark'
+config.color_scheme = 'OneHalfDark'
 config.colors = {
     tab_bar = {
         inactive_tab = {
