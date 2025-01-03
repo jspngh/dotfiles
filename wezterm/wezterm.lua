@@ -1,9 +1,6 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
-config.enable_wayland = false
-config.front_end = "WebGpu"
-
 config.font_size = 18
 config.font = wezterm.font 'Berkeley Mono'
 
