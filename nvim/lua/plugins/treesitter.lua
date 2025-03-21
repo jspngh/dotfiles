@@ -1,6 +1,6 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    version = "0.9.2",
+    version = "0.9.3",
     config = function ()
       local configs = require("nvim-treesitter.configs")
 
