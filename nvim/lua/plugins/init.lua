@@ -13,11 +13,6 @@ return {
         end,
     },
 
-    -- LSP
-    {
-        "neovim/nvim-lspconfig"
-    },
-
     -- GUI enhancements
     {
         "machakann/vim-highlightedyank"
