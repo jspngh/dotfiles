@@ -72,7 +72,8 @@ return {
     "--completion-style=detailed",
     "--header-insertion=never"
   },
-  filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda' },
+  filetypes = { 'c', 'cpp' },
+  root_markers = { '.clangd', '.clang-format', 'build' },
   capabilities = {
     textDocument = {
       completion = {
@@ -95,8 +96,5 @@ return {
     vim.api.nvim_buf_create_user_command(bufnr, 'LspClangdShowSymbolInfo', function()
       symbol_info(bufnr, client)
     end, { desc = 'Show symbol info' })
-  end,
-  root_dir = function()
-    return vim.fn.getcwd()
   end
 }
