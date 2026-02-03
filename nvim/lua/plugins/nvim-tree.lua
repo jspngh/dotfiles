@@ -19,6 +19,9 @@ return {
                     },
                 },
             },
+            filters = {
+                custom = { "^.git$", "^.jj$" },
+            },
         })
     end,
 }
